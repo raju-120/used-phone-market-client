@@ -1,0 +1,47 @@
+[
+    {
+      "_id": 1,
+      "name": "Apple Watch Series 7",
+      "photo": "https://i.ibb.co/F3Vh6Hg/apple-Watch-Series.jpg",
+      "usage": "3 Month",
+      "network": "Support 2G/3G/4G",
+      "sim": "eSim",
+      "os": "watchOS 8.0, upgradable to 9.5",
+      "chipset": "Apple S7",
+      "storage": "32GB 1GB RAM",
+      "camera": "No",
+      "usb": "USB Type-C 4",
+      "battery": "Li-Ion 309 mAh (1.19 Wh), non-removable",
+      "color": "Blue",
+      "price": 37000
+    },
+    {
+      "_id": 2,
+      "name": "Apple Watch Ultra",
+      "photo": "https://i.ibb.co/3CQ2xGS/appale-Watch-Ultra.jpg",
+      "usage": "5 Month",
+      "network": "Support 2G/3G/4G",
+      "sim": "eSIM",
+      "os": "watchOS 9.0, upgradable to 9.5",
+      "chipset": "Apple S8",
+      "storage": "32GB",
+      "camera": "No",
+      "battery": "Li-lon 542 mAh, non-removable (32.9 Wh)",
+      "color": "Green",
+      "price": 80000
+    },
+    {
+      "_id": 3,
+      "name": "Xiaomi Mi Watch Lite",
+      "photo": "https://i.ibb.co/mCzt4Qy/Xiaomi-Mi-Watch-Lite.jpg",
+      "usage": "1.5 year",
+      "network": "Support 2G/3G/4G",
+      "sim": "No-SIM",
+      "os": "\tProprietary OS",
+      "storage": "Unspecified storage",
+      "camera": "No",
+      "battery": "Li-lon 230 mAh, non-removable",
+      "color": "Creem",
+      "price": 1000
+    }
+  ]

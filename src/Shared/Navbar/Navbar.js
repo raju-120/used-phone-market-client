@@ -5,10 +5,14 @@ import logo from '../../assets/images/logo.jpg'
 const Navbar = () => {
 
     const itemsMenu = <>
-        <li><Link>Item 1</Link></li>
+        <li><Link to='/' className='text-xl'>Home</Link></li>
+        <li><Link className='text-xl'>Contract</Link></li>
+        <li><Link className='text-xl'>About</Link></li>
+        <li><Link className='text-xl'>Cart</Link></li>
+        <li><Link to='/login' className='text-xl btn btn-primary'>Login</Link></li>
     </>
     return (
-        <div className="navbar bg-base-200 mt-2 rounded">
+        <div className="navbar bg-base-200 mt-2 flex justify-between rounded">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -25,9 +29,7 @@ const Navbar = () => {
                     {itemsMenu}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button className='btn btn-primary'>Login</button>
-            </div>
+            
         </div>
     );
 };
