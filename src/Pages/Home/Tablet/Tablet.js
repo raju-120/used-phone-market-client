@@ -10,13 +10,13 @@ const Tablet = () => {
         fetch('tablets.json')
             .then(res => res.json())
             .then(data =>{
-                console.log(data);
+                //console.log(data);
                 setTabletServices(data);
             })
     })
     return (
         <div className='mt-5 mb-5'>
-            <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     tabletServices.map(tab=> <TabletItem
                         key={tab._id}

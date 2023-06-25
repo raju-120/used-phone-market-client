@@ -12,7 +12,7 @@ const TabletItem = ({tab}) => {
                     <h2 className="card-title">{name}</h2>
                     <p>price: <span className='font-bold'>{price}</span> Tk</p>
                     <div className="card-actions">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">Details</button>
                     </div>
                 </div>
             </div>
