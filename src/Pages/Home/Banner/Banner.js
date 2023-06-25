@@ -13,6 +13,9 @@ import 'swiper/css/pagination';
 
 const Banner = () => {
     return (
+
+
+        
         <Swiper
             style={{
                 "--swiper-navigation-color": "#fff",
@@ -38,21 +41,22 @@ const Banner = () => {
                 slot="container-start"
                 className="parallax-bg"
 
-                data-swiper-parallax="-23%">
+                data-swiper-parallax="-50%">
 
             </div>
             
             <SwiperSlide>
                 <div className="title" data-swiper-parallax="-300">
 
-                    <div className='banner '>
-                        <div className='flex items-center'>
-                            <div className='text-white px-12'>
-                                <h1 className='font-bold text-xl mb-4 font-serif'>Find your desire second-hand here.</h1>
+                    <div className='banner lg:bg-gray-400'>
+                        <div className='flex items-center flex-col lg:flex-row'>
+                            
+                            <div className='px-12'>
+                                <h1 className='font-bold text-xl mb-4 font-serif '>Find your desire second-hand here.</h1>
                                 <h1 className='text-6xl	mb-5'>Choose your phones </h1>
                             </div>
                             <div>
-                                <img className='banner-img pt-5 px-12' src={banner1} alt="" />
+                                <img className='banner-img pt-5 lg:px-12' src={banner1} alt="" />
                             </div>
                         </div>
 
@@ -62,14 +66,14 @@ const Banner = () => {
             <SwiperSlide>
                 <div className="title" data-swiper-parallax="-300">
 
-                    <div className='banner2 '>
-                        <div className='flex items-center'>
+                    <div className='lg:bg-stone-400 '>
+                        <div className='flex items-center flex-col lg:flex-row'>
                             <div className=' px-12'>
                                 <h1 className='font-bold text-xl mb-4 font-serif'>Find your desire second-hand here.</h1>
                                 <h1 className='text-6xl	mb-5'>Choose your phones </h1>
                             </div>
                             <div>
-                                <img className='banner-img pt-5 px-12' src={banner4} alt="" />
+                                <img className='banner-img pt-5 lg:px-12' src={banner4} alt="" />
                             </div>
                         </div>
 
@@ -79,14 +83,14 @@ const Banner = () => {
             <SwiperSlide>
                 <div className="title" data-swiper-parallax="-300">
 
-                    <div className='banner3 '>
-                        <div className='flex items-center'>
+                    <div className='lg:bg-slate-400'>
+                        <div className='flex items-center flex-col lg:flex-row'>
                             <div className=' px-12'>
                                 <h1 className='font-bold text-xl mb-4 font-serif'>Find your desire second-hand here.</h1>
                                 <h1 className='text-6xl	mb-5'>Choose your phones </h1>
                             </div>
                             <div>
-                                <img className='banner-img pt-5 px-12' src={banner2} alt="" />
+                                <img className='banner-img pt-5 lg:px-12' src={banner2} alt="" />
                             </div>
                         </div>
 
@@ -96,14 +100,14 @@ const Banner = () => {
             <SwiperSlide>
                 <div className="title" data-swiper-parallax="-300">
 
-                    <div className='banner4 '>
-                        <div className='flex items-center'>
+                    <div className='lg:bg-amber-400'>
+                        <div className='flex items-center flex-col lg:flex-row'>
                             <div className=' px-12'>
                                 <h1 className='font-bold text-xl mb-4 font-serif'>Find your desire second-hand here.</h1>
                                 <h1 className='text-6xl	mb-5'>Choose your phones </h1>
                             </div>
                             <div>
-                                <img className='banner-img pt-5 px-12' src={banner3} alt="" />
+                                <img className='banner-img pt-5 ;g:px-12' src={banner3} alt="" />
                             </div>
                         </div>
 
