@@ -1,6 +1,6 @@
 [
     {
-      "_id": 1,
+      "_id":1,
       "name": "Apple Ipad Pro 12.9",
       "photo": "https://i.ibb.co/NmKZ939/ipadPro.png",
       "usage": "9 Month",
@@ -19,7 +19,7 @@
       "price": 130000
     },
     {
-      "_id": 2,
+      "_id":2,
       "name": "Apple Ipad 7",
       "photo": "https://i.ibb.co/hdMdj9B/ipad7.jpg",
       "usage": "2 year",
@@ -38,7 +38,7 @@
       "price": 15000
     },
     {
-      "_id": 3,
+      "_id":3,
       "name": "Samsung Galaxy Tab S7",
       "photo": "https://i.ibb.co/C7d7Tmp/galaxy-Tab-S7.jpg",
       "usage": "1 year",
@@ -57,7 +57,7 @@
       "price": 45000
     },
     {
-      "_id": 4,
+      "_id":4,
       "name": "Samsung Galaxy Tab S8",
       "photo": "https://i.ibb.co/VqhwTqG/galaxy-Tab-S8.jpg",
       "usage": "6 Month",
@@ -76,7 +76,7 @@
       "price": 65000
     },
     {
-      "_id": 5,
+      "_id":5,
       "name": "Xiaomi Pad 5",
       "photo": "https://i.ibb.co/TkRQhQW/Xiaomi-Pad-5.jpg",
       "usage": "1.5 Year",
@@ -95,7 +95,7 @@
       "price": 14000
     },
     {
-      "_id": 6,
+      "_id":6,
       "name": "Xiaomi Pad 6",
       "photo": "https://i.ibb.co/kxW97rP/Xiaomi-Pad-6.jpg",
       "usage": "1 Month",

@@ -7,7 +7,7 @@ const Tablet = () => {
     const [tabletServices, setTabletServices] = useState([]);
 
     useEffect(()=>{
-        fetch('tablets.json')
+        fetch('http://localhost:5000/tabCollections')
             .then(res => res.json())
             .then(data =>{
                 //console.log(data);

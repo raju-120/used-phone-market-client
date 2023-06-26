@@ -6,7 +6,7 @@ const SmartPhones = () => {
     const [phoneServices, setPhoneServices] = useState([])
     
     useEffect(()=>{
-        fetch('phones.json')
+        fetch('http://localhost:5000/phoneCollections')
             .then(res => res.json())
             .then(data =>{
                 //console.log(data);

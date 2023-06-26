@@ -7,7 +7,7 @@ const SmartWatch = () => {
     const [smartWatchServices, setSmartWatchServices] = useState([])
 
     useEffect(()=>{
-        fetch('watch.json')
+        fetch('http://localhost:5000/watchCollections')
             .then(res => res.json())
             .then(data =>{
                 //console.log(data);
