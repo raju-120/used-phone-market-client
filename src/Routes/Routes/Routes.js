@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
-import CheckDetails from "../../Pages/CheckDetials/CheckDetails";
+import Appointment from "../../Pages/Appointment/Appointment";
 
 const router = createBrowserRouter([
     {
@@ -19,8 +19,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details/:_id',
-                element: <CheckDetails></CheckDetails>,
-                loader: ({params}) =>fetch(`phones.json/${params._id}`)
+                element: <Appointment></Appointment>,
+                loader: ({params}) =>fetch(`http://localhost:5000/phoneCollections/${params._id} `)
             }
         ]
     }
