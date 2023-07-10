@@ -1,9 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Phones from './Phones';
+import img1 from '../../../assets/images/Phones/iphone.jpg';
+import img2 from '../../../assets/images/Phones/pixel.jpg';
+import img3 from '../../../assets/images/Phones/samsung.jpg'
+import { Link } from 'react-router-dom';
 
 const SmartPhones = () => {
 
-    const [phoneServices, setPhoneServices] = useState([])
+    const phonesData=[
+        {
+            _id: 1,
+            img: img1,
+            name: 'Iphone'
+        },
+        {
+            _id: 2,
+            img: img2,
+            name: 'Pixel'
+        },
+        {
+            _id: 3,
+            img: img3,
+            name: 'Samsung'
+        },
+    ]
+
+    /* const [phoneServices, setPhoneServices] = useState([])
     
     useEffect(()=>{
         fetch('http://localhost:5000/phoneCollections')
@@ -12,16 +34,19 @@ const SmartPhones = () => {
                 //console.log(data);
                 setPhoneServices(data);
             })
-    },[])
+    },[]) */
     return (
         <div>
             <div className=' mt-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    phoneServices.map(phoneService=> <Phones
-                        key={phoneService._id}
-                        phoneService={phoneService}
+                    phonesData.map(phoneData=> <Phones
+                        key={phoneData._id}
+                        phoneData={phoneData}
                     ></Phones>)
                 }
+            </div>
+            <div style={{marginLeft: '600px'}}>
+                <Link to='/availablePhones' className='mt-5 btn btn-primary'>Explore Available Phone</Link>
             </div>
         </div>
     );

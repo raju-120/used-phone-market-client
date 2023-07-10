@@ -1,13 +1,14 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
+import React from 'react';
+import { DayPicker } from 'react-day-picker';
+import { useLoaderData } from 'react-router-dom';
 
-const CheckDetails = ({selectedDate,setSelectedDate}) => {
-    const { name,photo,price,usage,camera,chipset,color,network,
+const PhonesDetails = ({selectedDate,setSelectedDate}) => {
+
+
+    const {name,photo,price,usage,camera,chipset,color,network,
         os,selfie,selfieVDO,sim,storage,usb,video,battery} = useLoaderData();
 
-    
     return (
         <div className='mt-5'>
             <div className="card flex flex-col-row lg:card-side bg-base-200 shadow-xl">
@@ -126,4 +127,4 @@ const CheckDetails = ({selectedDate,setSelectedDate}) => {
     );
 };
 
-export default CheckDetails;
+export default PhonesDetails;
