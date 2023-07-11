@@ -16,6 +16,10 @@
         "usb": "C-Type",
         "battery": "Li-Po 5020 mAh, non-removable",
         "color": "Interstellar Gray",
+        "slots":[
+            "04.00 PM - 04.30 PM(Bashundhara City,Panthapath)",
+            "05.30 PM - 06.00 PM(The Green Lounge,New Eskaton Road)"
+        ],
         "price": 13500
     },
     {
@@ -35,6 +39,10 @@
         "usb": "C-Type",
         "battery": "Li-Po 5020 mAh, non-removable",
         "color": "Onyx Gray",
+        "slots":[
+            "05.00 PM - 05.30 PM(BRAC University,Mohakhali)",
+            "06.30 PM - 07.00 PM(Banani CLub, Banani)"
+        ],
         "price": 14500
     },
     {
@@ -54,6 +62,10 @@
         "usb": "C-Type",
         "battery": "Li-lon 5000 mAh, non-removable",
         "color": "Phantom Black",
+        "slots":[
+            "07.00 PM - 07.30 PM(Gloria Jeans Coffees,Ghulsan 1)",
+            "08.00 PM - 08.30 PM(Police plaza Concord,Ghulsan)"
+        ],
         "price": 40000
     },
     {
@@ -73,6 +85,10 @@
         "usb": "C-Type",
         "battery": "Li-lon 3700 mAh, non-removable",
         "color": "Phantom Black",
+        "slots":[
+            "05.00 PM - 05.30 PM(Jamuna Future Park,Bashundhara)",
+            "06.00 PM - 06.30 PM(NSU Gate,Bashundhara)"
+        ],
         "price": 36000
     },
     {
@@ -92,6 +108,10 @@
         "usb": "C-Type",
         "battery": "Li-Po 4080 mAh, non-removable",
         "color": "Just Black",
+        "slots":[
+            "04.00 PM - 04.30 PM(MIST,Mirpur)",
+            "05.30 PM - 06.00 PM(BUP,Mirpur)"
+        ],
         "price": 40000
     },
     {
@@ -111,6 +131,10 @@
         "usb": "C-Type",
         "battery": "Li-Po 4614 mAh, non-removable",
         "color": "Stormy Black",
+        "slots":[
+            "05.00 PM - 05.30 PM(Sultan Dine,Uttara Sec:11)",
+            "06.00 PM - 06.30 PM(Uttara Sector-12 Park, Uttara)"
+        ],
         "price": 45000
     },
     {
@@ -130,6 +154,10 @@
         "usb": "Lightning, USB 2.0",
         "battery": "Li-Ion 3687 mAh, non-removable (14.13 Wh)",
         "color": "Graphite",
+        "slots":[
+            "06.00 PM - 06.30 PM(Arabika Coffee,Bashundhara)",
+            "07.00 PM - 07.30 PM(Rajbari FoodCourt, Bashundhara)"
+        ],
         "price": 95000
     },
     {
@@ -149,6 +177,10 @@
         "usb": "Lightning, USB 2.0",
         "battery": "Li-Ion 4352 mAh, non-removable (14.13 Wh)",
         "color": "Silver",
+        "slots":[
+            "05.00 PM - 05.30 PM(Yum Cha District,Dhanmondi)",
+            "06.00 PM - 06.30 PM(Bengal Book,Dhanmondi)"
+        ],
         "price": 120000
     }
 ]
