@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Link} from 'react-router-dom'
 import pic from '../../assets/images/login.jpg';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
 
-    const {register,handleSubmit}= useForm();
+    const {signIn} = useContext(AuthContext)
+
+    const {register,formState:{errors} ,handleSubmit}= useForm();
 
     const handleLogin=data =>{
         console.log(data)
+        signIn(data.email, data.password)
+            .then(result=>{
+                const user = result.user;
+                console.log(user);
+                toast('Login successfully');
+            })
+            .catch(err =>{
+                console.log(err);
+            })
     }
 
     return (
@@ -36,6 +49,7 @@ const Login = () => {
                                         })
                                     }
                                     placeholder="email" className="input input-bordered" />
+                                    {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
                             </div>
 
                             <div className="form-control">
@@ -51,6 +65,7 @@ const Login = () => {
                                         })
                                     }
                                     placeholder="password" className="input input-bordered" />
+                                    {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
                                 
                                 <label className="label">
                                     <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>

@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-hot-toast';
+
 
 const SignUp = () => {
 
-    const { register,handleSubmit } = useForm();
+    const { register,formState: {errors} ,handleSubmit } = useForm();
+    const {createUser} = useContext(AuthContext);
 
-    const handleSignup= data=>{
+    const handleSignup= (data)=>{
         console.log(data);
+        
+        createUser(data.email, data.password)
+            .then(result =>{
+                const user = result.user;
+                console.log(user);
+                toast('User Created Successfully')
+            })
+            .catch(err =>{
+                console.log(err);
+            })
     } 
     return (
         <div>
@@ -42,6 +56,7 @@ const SignUp = () => {
                                         })
                                     }
                                     placeholder="email" className="input input-bordered" />
+                                    {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                             </div>
 
                             <div className="form-control">
@@ -57,6 +72,7 @@ const SignUp = () => {
                                         })
                                     }
                                     placeholder="password" className="input input-bordered" />
+                                    {errors.password && <p className='text-red-500'> {errors.password?.message} </p>}
                                 
                                 
 
