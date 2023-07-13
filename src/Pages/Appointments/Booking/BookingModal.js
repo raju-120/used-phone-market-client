@@ -1,10 +1,19 @@
 import { format } from 'date-fns';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const BookingModal = ({selectedDate}) => {
+
+
+    const {user} = useContext(AuthContext);
     const {name,slots} = useLoaderData();
+
     const date = format(selectedDate,'PP')
+
+    /* const handleBooking =() =>{
+
+    } */
 
     return (
         <>
@@ -27,8 +36,8 @@ const BookingModal = ({selectedDate}) => {
                             }
                         </select>
                         
-                        <input type="text" name='name'   placeholder="Name" className="input input-bordered w-full" required/>
-                        <input type="text" name='email'  placeholder="Email Address" className="input input-bordered w-full" required/>
+                        <input type="text" name='name'  /* disabled defaultValue={user?.displayName}  */placeholder="Name" className="input input-bordered w-full" required/>
+                        <input type="text" name='email' disabled defaultValue={user?.email}  placeholder="Email Address" className="input input-bordered w-full" required/>
                         <input type="text" name='phone' placeholder="Phone" className="input input-bordered w-full" required/>
                         <br />
                         <input type="submit" className='w-full max-w-xl btn btn-accent' value='Submit'/>

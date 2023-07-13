@@ -1,28 +1,55 @@
-import React, { useContext } from 'react';
-import {Link} from 'react-router-dom'
+import React, { useContext, useState } from 'react';
+import {Link, useNavigate} from 'react-router-dom'
 import pic from '../../assets/images/login.jpg';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import googlePhoto from '../../assets/logo/Google__G__Logo.svg.webp';
+import facebookPhoto from '../../assets/logo/Facebook_f_logo_(2021).svg.png';
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext)
-
     const {register,formState:{errors} ,handleSubmit}= useForm();
+    const {signIn/* , resetEmail */,googleLogin} = useContext(AuthContext)
+    
+    const [loginError, setLoginError] = useState('');
 
-    const handleLogin=data =>{
-        console.log(data)
+    const navigate= useNavigate();
+
+
+    const handleLogin = (data) =>{
+        console.log(data);
+        setLoginError('');
         signIn(data.email, data.password)
             .then(result=>{
                 const user = result.user;
                 console.log(user);
                 toast('Login successfully');
+                navigate('/');
             })
             .catch(err =>{
                 console.log(err);
             })
     }
+
+    const handleGoogleLogIn= () =>{
+        googleLogin()
+            .then(result =>{
+                const user = result.user;
+                console.log(user);
+                toast('Successfully user login with Google');
+                navigate('/');
+            })
+    }
+
+    /* const handleReset = () =>{
+        resetEmail()
+            .then( () =>{})
+            .catch(err => {
+                const message = err.message;
+                console.log(message);
+            })
+    } */
 
     return (
         <div>
@@ -68,16 +95,38 @@ const Login = () => {
                                     {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
                                 
                                 <label className="label">
-                                    <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
+                                    <Link /* onClick={handleReset} */ className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
 
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <p>New to used-phone? Please <Link to='/registration' className='text-xl font-bold text-info'>SignUp</Link> </p>
-                        </form>
+                            {
+                                loginError && <p className='text-red-500'>{loginError}</p>
+                            }
 
+                        <p className='ml-8'>New to used-phone? Please <Link to='/registration' className='text-xl font-bold text-info'>SignUp</Link> </p>
+                        </form>
+                        
+                        {/* Other platform  login with  */}
+
+                        <div onClick={handleGoogleLogIn} className='flex max-w-xs ml-16 mb-2 btn'>
+                            <div>
+                                <h2>Sign-in with Google</h2>
+                            </div>
+                            <div>
+                                <img src={googlePhoto} style={{width: '25px'}} alt="" />
+                            </div>
+                        </div>
+                        <div className='flex max-w-xs ml-16 mb-5 btn'>
+                            <div>
+                                <h2>Sign-in with Facebook</h2>
+                            </div>
+                            <div>
+                                <img src={facebookPhoto} style={{width: '25px'}} alt="" />
+                            </div>
+                        </div>
                     </div> 
                 </div>
             </div>
