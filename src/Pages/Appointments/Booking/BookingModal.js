@@ -11,9 +11,9 @@ const BookingModal = ({selectedDate}) => {
 
     const date = format(selectedDate,'PP')
 
-    /* const handleBooking =() =>{
-
-    } */
+    const handleBooking =(event) =>{
+        event.preventDefault();
+    }
 
     return (
         <>
@@ -23,7 +23,7 @@ const BookingModal = ({selectedDate}) => {
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-semibold">Make an Appointment for {name}</h3>
                     
-                    <form  className='grid grid-cols-1 gap-3 mt-10'>
+                    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
                         <input type="text" name='date' disabled value={date} className="input input-bordered w-full" />
                         
                         <select name='slot' className="select select-bordered w-full ">

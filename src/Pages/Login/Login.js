@@ -10,7 +10,7 @@ import facebookPhoto from '../../assets/logo/Facebook_f_logo_(2021).svg.png';
 const Login = () => {
 
     const {register,formState:{errors} ,handleSubmit}= useForm();
-    const {signIn/* , resetEmail */,googleLogin} = useContext(AuthContext)
+    const {signIn,googleLogin,facebookLogin} = useContext(AuthContext)
     
     const [loginError, setLoginError] = useState('');
 
@@ -42,14 +42,17 @@ const Login = () => {
             })
     }
 
-    /* const handleReset = () =>{
-        resetEmail()
-            .then( () =>{})
-            .catch(err => {
-                const message = err.message;
-                console.log(message);
+    const handleFaceBookLogIn = () =>{
+        facebookLogin() 
+            .then(result =>{
+                const user = result.user;
+                console.log(user);
+                toast('Successfully user login with Facebook.');
+                navigate('/') 
             })
-    } */
+    }
+
+    
 
     return (
         <div>
@@ -94,9 +97,11 @@ const Login = () => {
                                     placeholder="password" className="input input-bordered" />
                                     {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
                                 
+                                
                                 <label className="label">
-                                    <Link /* onClick={handleReset} */ className="label-text-alt link link-hover">Forgot password?</Link>
+                                    <Link to='/reset' className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
+
 
                             </div>
                             <div className="form-control mt-6">
@@ -119,7 +124,8 @@ const Login = () => {
                                 <img src={googlePhoto} style={{width: '25px'}} alt="" />
                             </div>
                         </div>
-                        <div className='flex max-w-xs ml-16 mb-5 btn'>
+
+                        <div onClick={handleFaceBookLogIn} className='flex max-w-xs ml-16 mb-5 btn'>
                             <div>
                                 <h2>Sign-in with Facebook</h2>
                             </div>

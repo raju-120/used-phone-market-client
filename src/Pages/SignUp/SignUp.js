@@ -10,7 +10,7 @@ import facebookPhoto from '../../assets/logo/Facebook_f_logo_(2021).svg.png';
 const SignUp = () => {
 
     const { register,formState: {errors} ,handleSubmit } = useForm();
-    const {createUser , updateUser,googleLogin } = useContext(AuthContext);
+    const {createUser , updateUser,googleLogin,facebookLogin } = useContext(AuthContext);
     const navigate= useNavigate();
 
     const handleSignup= (data)=>{
@@ -51,6 +51,16 @@ const SignUp = () => {
             })
             .catch(err => console.error(err))
     }
+
+    const handleFaceBookLogIn = () =>{
+        facebookLogin()
+            .then(result =>{
+                const user = result.user;
+                console.log(user);
+                toast('Successfully user signUp with Facebook.')
+            })
+            .catch(err => console.error(err))
+    } 
 
     return (
         <div>
@@ -119,7 +129,8 @@ const SignUp = () => {
                                 <img src={googlePhoto} style={{width: '25px'}} alt="" />
                             </div>
                         </div>
-                        <div className='flex max-w-xs ml-16 mb-5 btn'>
+
+                        <div onClick={handleFaceBookLogIn} className='flex max-w-xs ml-16 mb-5 btn'>
                             <div>
                                 <h2>Sign-up with Facebook</h2>
                             </div>

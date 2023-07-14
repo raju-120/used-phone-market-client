@@ -5,6 +5,7 @@ import Login from "../../Pages/Login/Login";
 import AvailablePhones from "../../Pages/AvailablePhones/AvailablePhones";
 import Appointment from "../../Pages/Appointments/Appontments/Appointment";
 import SignUp from "../../Pages/SignUp/SignUp";
+import ResetPassword from "../../Pages/Login/ResetPassword";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: '/registration',
                 element: <SignUp></SignUp>
+            },
+            {
+                path:'/reset',
+                element: <ResetPassword></ResetPassword>
             },
             {
                 path: '/availablePhones',
