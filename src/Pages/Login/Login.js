@@ -24,7 +24,7 @@ const Login = () => {
             .then(result=>{
                 const user = result.user;
                 console.log(user);
-                toast('Login successfully');
+                toast.success('Login successfully');
                 navigate('/');
             })
             .catch(err =>{
@@ -37,7 +37,7 @@ const Login = () => {
             .then(result =>{
                 const user = result.user;
                 console.log(user);
-                toast('Successfully user login with Google');
+                toast.success('Successfully user login with Google');
                 navigate('/');
             })
     }
@@ -61,7 +61,7 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center ">
 
-                        <img src={pic} className='rounded-lg' style={{width: '75%'}} alt="" />
+                        <img src={pic} className='rounded-lg' /* style={{width: '75%'}} */ alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
                         
@@ -95,28 +95,33 @@ const Login = () => {
                                         })
                                     }
                                     placeholder="password" className="input input-bordered" />
-                                    {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
+                                    
                                 
                                 
                                 <label className="label">
                                     <Link to='/reset' className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
-
-
+                                {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
+                                
                             </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
-                            </div>
-                            {
-                                loginError && <p className='text-red-500'>{loginError}</p>
-                            }
 
-                        <p className='ml-8'>New to used-phone? Please <Link to='/registration' className='text-xl font-bold text-info'>SignUp</Link> </p>
+                            <input className='btn btn-accent w-full' value="Login" type="submit" />
+                            
+                            <div>
+                                
+                                 {
+                                    loginError && <p className='text-red-500'>{loginError}</p>
+                                }
+                            </div>
+                            
+
                         </form>
+                        
+                        <p className='ml-8 mb-5 '>New to used-phone? Please <Link to='/registration' className='text-xl font-bold text-info'>SignUp</Link> </p>
                         
                         {/* Other platform  login with  */}
 
-                        <div onClick={handleGoogleLogIn} className='flex max-w-xs ml-16 mb-2 btn'>
+                        <div onClick={handleGoogleLogIn} className='flex max-w-md mb-2 btn'>
                             <div>
                                 <h2>Sign-in with Google</h2>
                             </div>
@@ -125,7 +130,7 @@ const Login = () => {
                             </div>
                         </div>
 
-                        <div onClick={handleFaceBookLogIn} className='flex max-w-xs ml-16 mb-5 btn'>
+                        <div onClick={handleFaceBookLogIn} className='flex max-w-md mb-5 btn'>
                             <div>
                                 <h2>Sign-in with Facebook</h2>
                             </div>

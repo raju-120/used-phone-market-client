@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
@@ -13,14 +13,18 @@ const SignUp = () => {
     const {createUser , updateUser,googleLogin,facebookLogin } = useContext(AuthContext);
     const navigate= useNavigate();
 
+    /* const [createdEmail,setCreatedEmail] = useState(''); */
+    const [signUpError, setSignUpError] = useState('');
+
+
     const handleSignup= (data)=>{
-        console.log(data);
         
+        setSignUpError('');
         createUser(data.email, data.password)
             .then(result =>{
                 const user = result.user;
                 console.log(user);
-                toast('User Created Successfully');
+                toast.success('User Created Successfully');
                 navigate('/');
                 const userInfo = {
                     displayName: data.name
@@ -37,7 +41,17 @@ const SignUp = () => {
 
             const saveUser = (name, email) =>{
                 const user = {name, email};
-                console.log(user);
+                
+                fetch('http://localhost:5000/emailusers',{
+                    method:'POST',
+                    headers: {
+                        'content-type' : 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                .then( res => res.json())
+                .then( err => console.error(err)
+                )
             }
     } 
 
@@ -46,8 +60,9 @@ const SignUp = () => {
             .then(result =>{
                 const user = result.user;
                 console.log(user);
-                toast('Successfully user created with Google');
+                toast.success('Successfully user created with Google');
                 navigate('/');
+                
             })
             .catch(err => console.error(err))
     }
@@ -57,7 +72,7 @@ const SignUp = () => {
             .then(result =>{
                 const user = result.user;
                 console.log(user);
-                toast('Successfully user signUp with Facebook.')
+                toast.success('Successfully user signUp with Facebook.')
             })
             .catch(err => console.error(err))
     } 
@@ -113,15 +128,15 @@ const SignUp = () => {
                                     placeholder="password" className="input input-bordered" />
                                     {errors.password && <p className='text-red-500'> {errors.password?.message} </p>}
                                 
-                                
+                            </div>
 
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">SignUp</button>
-                            </div>
-                            <p>Already registered? Please <Link to='/login' className='text-xl font-bold text-info'>Login</Link> </p>
+                            <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
+                            {signUpError && <p className='text-red-500'>{signUpError}</p>}
                         </form>
-                        <div onClick={handleGoogleLogIn} className='flex max-w-xs ml-16 mb-2 btn'>
+                        
+                        <p className='ml-8 mb-4'>Already registered? Please <Link to='/login' className='text-xl font-bold text-info'>Login</Link> </p>
+                        
+                        <div onClick={handleGoogleLogIn} className='flex max-w-md mb-2 btn'>
                             <div>
                                 <h2>Sign-up with Google</h2>
                             </div>
@@ -130,7 +145,7 @@ const SignUp = () => {
                             </div>
                         </div>
 
-                        <div onClick={handleFaceBookLogIn} className='flex max-w-xs ml-16 mb-5 btn'>
+                        <div onClick={handleFaceBookLogIn} className='flex max-w-md mb-5 btn'>
                             <div>
                                 <h2>Sign-up with Facebook</h2>
                             </div>

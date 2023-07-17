@@ -1,49 +1,21 @@
-import { format } from 'date-fns';
 import React from 'react';
-import { DayPicker } from 'react-day-picker';
 import { useLoaderData } from 'react-router-dom';
 
-const PhonesDetails = ({selectedDate,setSelectedDate}) => {
-
-
+const PhoneDetails = () => {
     const {name,photo,price,usage,camera,chipset,color,network,
         os,selfie,selfieVDO,sim,storage,usb,video,battery} = useLoaderData();
-
-    return (
+    
+        return (
         <div className='mt-5'>
             <div className="card flex flex-col-row lg:card-side bg-base-200 shadow-xl">
                 <figure>
-                    <img style={{width: '70%',padding: '15px'}} src={photo} alt="Phone"/>
+                    <img  src={photo} alt="Phone"/>
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold text-5xl">{name}</h2>
                     <p className='mt-2 text-xl'>Price: <span className='font-bold text-indigo-500'>{price}</span> Tk</p>
                             
-                    <div className='lg:flex justify-between'>
-                        <div >
-                            <p>Used: <span className='text-xl font-bold'>{usage}</span></p>
-                        </div>
-                        
-                        {/* Meeting Appointment section  */}
-
-                        <div className='lg:mr-14'>
-                            <h3 className='text-xl font-semibold'>Pick a date for booking a meeting.</h3>
-                            
-                            <DayPicker
-                                mode='single'
-                                selected={selectedDate}
-                                onSelect={setSelectedDate}
-                            />
-
-                            <p>You have selected date: {format(selectedDate, 'PP')}</p>
-
-                            <div className="card-actions mt-5 ">
-                                <label htmlFor="booking-modal" className="btn btn-primary">Booking a Meeting</label>
-                            </div>
-
-                        </div>
-                    </div>
-                    
+                    <p>Used: <span className='text-xl font-bold'>{usage}</span></p>
                     
                 </div>
 
@@ -127,4 +99,4 @@ const PhonesDetails = ({selectedDate,setSelectedDate}) => {
     );
 };
 
-export default PhonesDetails;
+export default PhoneDetails;

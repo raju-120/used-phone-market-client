@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
-import AvailablePhones from "../../Pages/AvailablePhones/AvailablePhones";
-import Appointment from "../../Pages/Appointments/Appontments/Appointment";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ResetPassword from "../../Pages/Login/ResetPassword";
+import Appointment from "../../Pages/Appointment/Appointment";
+import PhoneDetails from "../../Pages/Appointment/AvailableAppointment/PhoneDetails";
 
 const router = createBrowserRouter([
     {
@@ -29,13 +29,14 @@ const router = createBrowserRouter([
                 element: <ResetPassword></ResetPassword>
             },
             {
-                path: '/availablePhones',
-                element: <AvailablePhones></AvailablePhones>
+                path:'/details/:_id',
+                element: <PhoneDetails></PhoneDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/phoneCollections/${params._id} `)
             },
             {
-                path:'/details/:_id',
-                element: <Appointment></Appointment>,
-                loader: ({params}) => fetch(`http://localhost:5000/phoneCollections/${params._id} `)
+                path:'/appointment',
+                element: <Appointment></Appointment>
+                
             }
         ]
     }

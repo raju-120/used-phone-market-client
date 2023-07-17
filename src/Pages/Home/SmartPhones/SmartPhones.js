@@ -24,17 +24,6 @@ const SmartPhones = () => {
             name: 'Samsung'
         },
     ]
-
-    /* const [phoneServices, setPhoneServices] = useState([])
-    
-    useEffect(()=>{
-        fetch('http://localhost:5000/phoneCollections')
-            .then(res => res.json())
-            .then(data =>{
-                //console.log(data);
-                setPhoneServices(data);
-            })
-    },[]) */
     return (
         <div>
             <div className=' mt-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
@@ -46,7 +35,7 @@ const SmartPhones = () => {
                 }
             </div>
             <div style={{marginLeft: '600px'}}>
-                <Link to='/availablePhones' className='mt-5 btn btn-primary'>Explore Available Phone</Link>
+                <Link to='/appointment' className='mt-5 btn btn-primary'>Explore Available Phone</Link>
             </div>
         </div>
     );

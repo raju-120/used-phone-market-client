@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
 
@@ -6,20 +6,19 @@ const ResetPassword = () => {
 
     const {register,formState:{errors},handleSubmit }= useForm();
 
-    const {resetEmail} = useContext(AuthContext)
+    const {resetEmail} = useContext(AuthContext);
+
+    const [emailError, setEmailError] = useState('');
 
     const handleReset = (data) =>{
         console.log(data);
-        resetEmail(data.email)
-            .then( result =>{
-                const user = result.user;
-                console.log(user)
-                window.alert('Password reset link sent to your mail account.')
+        setEmailError('');
+        resetEmail(data?.email)
+            .then( () =>{
+                window.alert('Password reset link sent to your email account.');
+                
             })
-            .catch(err => {
-                const message = err.message;
-                console.log(message);
-            })
+            .catch(err => console.error(err))
     } 
 
     return (
@@ -49,6 +48,9 @@ const ResetPassword = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
+                            {
+                                emailError && <p className='text-red-500'>{emailError}</p>
+                            }
                     </form>
                 </div>
             </div>

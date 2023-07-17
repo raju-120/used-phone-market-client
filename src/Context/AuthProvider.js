@@ -47,6 +47,7 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return signInWithPopup(auth, facebookProvider);
     }
+    
 
     useEffect(()=>{
         const unSubscribe= onAuthStateChanged(auth, currentUser=>{
