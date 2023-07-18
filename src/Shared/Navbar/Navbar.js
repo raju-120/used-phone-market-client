@@ -17,10 +17,11 @@ const Navbar = () => {
     const itemsMenu = <React.Fragment>
         <li><Link to='/' className='text-xl'>Home</Link></li>
         <li><Link className='text-xl'>About</Link></li>
-        <li><Link className='text-xl'>Cart</Link></li>
+        
 
         { user?.uid ?
             <>
+            <li><Link to='/dashboard' className='text-xl'>Dashboard</Link></li>
             <li><button onClick={handleLogout} className='text-lg btn btn-primary'>SignOut</button></li>
             </>
             :

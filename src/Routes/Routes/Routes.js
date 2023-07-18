@@ -6,6 +6,9 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import ResetPassword from "../../Pages/Login/ResetPassword";
 import Appointment from "../../Pages/Appointment/Appointment";
 import PhoneDetails from "../../Pages/Appointment/AvailableAppointment/PhoneDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import AppointmentTablet from "../../Pages/Appointment/AppointmentTablet/AppointmentTablet";
 
 const router = createBrowserRouter([
     {
@@ -35,10 +38,18 @@ const router = createBrowserRouter([
             },
             {
                 path:'/appointment',
-                element: <Appointment></Appointment>
+                element: <PrivateRoute><Appointment></Appointment></PrivateRoute>
                 
+            },
+            {
+                path: '/appointmenttab',
+                element: <AppointmentTablet></AppointmentTablet>
             }
         ]
+    },
+    {
+        path:'/dashboard',
+        element: <PrivateRoute> <Dashboard></Dashboard> </PrivateRoute>
     }
 ])
 

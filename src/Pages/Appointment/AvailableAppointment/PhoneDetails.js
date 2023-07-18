@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const PhoneDetails = () => {
     const {name,photo,price,usage,camera,chipset,color,network,
@@ -16,7 +16,9 @@ const PhoneDetails = () => {
                     <p className='mt-2 text-xl'>Price: <span className='font-bold text-indigo-500'>{price}</span> Tk</p>
                             
                     <p>Used: <span className='text-xl font-bold'>{usage}</span></p>
-                    
+                    <div>
+                        <Link className='btn btn-primary' to='/appointment'>Go to the available phone section</Link>
+                    </div>
                 </div>
 
             </div>

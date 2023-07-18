@@ -2,9 +2,9 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import HomeSection from '../HomeSection/HomeSection';
 import SmartPhones from '../SmartPhones/SmartPhones';
-import Tablet from '../Tablet/Tablet';
 import SmartWatch from '../SmartWatch/SmartWatch';
 import Report from '../Report/Report';
+import Tablet from '../Tablet/Tablet';
 
 const Home = () => {
     return (
