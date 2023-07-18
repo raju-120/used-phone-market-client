@@ -3,11 +3,11 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 
-const BookingModal = ({phoneBooked,selectDate}) => {
+const BookingModal = ({phoneBooked,selectDate, setPhoneBooked, refetch}) => {
 
-    const {user} = useContext(AuthContext)
     const {name:deviceName,slots,price} = phoneBooked;
     const date = format(selectDate, 'PP');
+    const {user} = useContext(AuthContext);
 
     const handleBooking= (event) =>{
         event.preventDefault();
@@ -35,10 +35,13 @@ const BookingModal = ({phoneBooked,selectDate}) => {
         })
         .then(res => res.json())
         .then(data =>{
-            console.log(data)
+            console.log(data);
             if(data.acknowledged)
             {
+                setPhoneBooked(null);
                 toast.success('Booking Confirmed');
+                refetch();
+                
             }
             else{
                 toast.error(data.error);
