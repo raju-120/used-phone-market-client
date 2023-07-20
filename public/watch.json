@@ -13,6 +13,10 @@
       "usb": "USB Type-C 4",
       "battery": "Li-Ion 309 mAh (1.19 Wh), non-removable",
       "color": "Blue",
+      "slots":[
+        "4.00PM - 4.30 PM(Pink city Shopping Mall, Ghulsan-2)",
+        "5.00 PM - 5.30 PM(Kacchi Vai, Ghulsan-2)"
+      ],
       "price": 37000
     },
     {
@@ -28,6 +32,10 @@
       "camera": "No",
       "battery": "Li-lon 542 mAh, non-removable (32.9 Wh)",
       "color": "Green",
+      "slots":[
+        "6.30PM - 7.00 PM(Woodhouse Grill, Ghulsan)",
+        "7.30 PM - 8.00 PM(Waffle Up, Ghulsan)"
+      ],
       "price": 80000
     },
     {
@@ -37,11 +45,15 @@
       "usage": "1.5 year",
       "network": "Support 2G/3G/4G",
       "sim": "No-SIM",
-      "os": "\tProprietary OS",
+      "os": "Proprietary OS",
       "storage": "Unspecified storage",
       "camera": "No",
       "battery": "Li-lon 230 mAh, non-removable",
       "color": "Creem",
+      "slots":[
+        "6.30PM - 7.00 PM(The Wind Lounge, Rampura)",
+        "7.30 PM - 8.00 PM(MyTV, Rampura)"
+      ],
       "price": 1000
     }
   ]

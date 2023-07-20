@@ -36,7 +36,7 @@ const SmartWatch = () => {
                 }
             </div>
             <div className='text-center mt-5'>
-                <Link className='btn btn-primary'>Explore Available Watch</Link>
+                <Link to='/watchappointment' className='btn btn-primary'>Explore Available Watch</Link>
             </div>
         </div>
     );

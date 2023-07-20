@@ -10,6 +10,7 @@ import AppointmentTablet from "../../Pages/Appointment/AppointmentTablet/Appoint
 import Appointment from "../../Pages/Appointment/AppointmentPhone/Appointment";
 import PhoneDetails from "../../Pages/Appointment/AppointmentPhone/AvailableAppointment/PhoneDetails";
 import TabletDetails from "../../Pages/Appointment/AppointmentTablet/AvailableAppointmentTablet/TabletDetails";
+import AppointmentWatch from "../../Pages/Appointment/AppointmentWatch/AppointmentWatch";
 
 const router = createBrowserRouter([
     {
@@ -49,8 +50,11 @@ const router = createBrowserRouter([
             {
                 path: '/tabDetails/:_id',
                 element: <TabletDetails></TabletDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/tabCollections/${params._id} `) 
-
+                loader: ({params}) => fetch(`http://localhost:5000/tabCollections/${params._id} `)
+            },
+            {
+                path: '/watchappointment',
+                element: <AppointmentWatch></AppointmentWatch>
             }
         ]
     },
