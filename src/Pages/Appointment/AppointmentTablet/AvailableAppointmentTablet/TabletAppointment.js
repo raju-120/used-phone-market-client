@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TabletAppointment = ({option,setTabletBooked}) => {
 
-    const{name,price,usage,slots} = option;
+    const{name,price,usage,slots,_id} = option;
     
 
     return (
@@ -14,7 +15,8 @@ const TabletAppointment = ({option,setTabletBooked}) => {
                     <p className='text-center'>Used: <span className='font-bold'>  {usage} </span></p>
                     <p className='text-center'>Slots available : {slots.length} {slots.length > 1 ? 'Spaces' : 'Space'} </p>
                     <div className="mt-3 card-actions justify-between">
-                        <button className="btn btn-primary">Details</button>
+                        
+                        <Link to={`/tabDetails/${_id}`}  className="btn btn-primary">Details</Link>
                         
                         <label 
                             htmlFor="tab-booking-modal" 

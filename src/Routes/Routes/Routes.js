@@ -9,6 +9,7 @@ import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import AppointmentTablet from "../../Pages/Appointment/AppointmentTablet/AppointmentTablet";
 import Appointment from "../../Pages/Appointment/AppointmentPhone/Appointment";
 import PhoneDetails from "../../Pages/Appointment/AppointmentPhone/AvailableAppointment/PhoneDetails";
+import TabletDetails from "../../Pages/Appointment/AppointmentTablet/AvailableAppointmentTablet/TabletDetails";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,12 @@ const router = createBrowserRouter([
             {
                 path: '/appointmenttab',
                 element: <AppointmentTablet></AppointmentTablet>
+            },
+            {
+                path: '/tabDetails/:_id',
+                element: <TabletDetails></TabletDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/tabCollections/${params._id} `) 
+
             }
         ]
     },
