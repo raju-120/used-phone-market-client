@@ -1,6 +1,5 @@
 [
     {
-      "_id":1,
       "name": "Apple Ipad Pro 12.9",
       "photo": "https://i.ibb.co/NmKZ939/ipadPro.png",
       "usage": "9 Month",
@@ -16,10 +15,13 @@
       "usb": "USB Type-C 4",
       "battery": "Li-Po 10758 mAh (40.88 Wh), non-removable",
       "color": "Space Gray",
+      "slots":[
+        "5.30PM - 6.00PM (Uttara-11, Sultan Dine)",
+        "7.30PM - 8.00PM (Uttara-14, Cafe Darbar)"
+      ],
       "price": 130000
     },
     {
-      "_id":2,
       "name": "Apple Ipad 7",
       "photo": "https://i.ibb.co/hdMdj9B/ipad7.jpg",
       "usage": "2 year",
@@ -35,10 +37,13 @@
       "usb": "Lightning, USB 2.0; magnetic connector",
       "battery": "Li-Po 8827 mAh, non-removable (32.9 Wh)",
       "color": "Silver",
+      "slots":[
+        "4.00PM - 4.30PM (Bashundhara, NSU gate-8)",
+        "5.30PM - 6.00PM (Bashundhara future park )"
+      ],
       "price": 15000
     },
     {
-      "_id":3,
       "name": "Samsung Galaxy Tab S7",
       "photo": "https://i.ibb.co/C7d7Tmp/galaxy-Tab-S7.jpg",
       "usage": "1 year",
@@ -53,11 +58,14 @@
       "selfieVDO": "1080p@30fps",
       "usb": "USB Type-C 3.2, magnetic connector",
       "battery": "Li-Po 8000 mAh, non-removable",
-      "color": "\tMystic Black",
+      "color": "tMystic Black",
+      "slots":[
+        "4.30PM - 5.00PM (BRAC University,Mohakhali )",
+        "6.30PM - 6.00PM (Titumir College, Mohakhali)"
+      ],
       "price": 45000
     },
     {
-      "_id":4,
       "name": "Samsung Galaxy Tab S8",
       "photo": "https://i.ibb.co/VqhwTqG/galaxy-Tab-S8.jpg",
       "usage": "6 Month",
@@ -73,10 +81,13 @@
       "usb": "USB Type-C 3.2, magnetic connector",
       "battery": "Li-Po 8000 mAh, non-removable",
       "color": "Silver",
+      "slots":[
+        "7.30PM - 8.00PM (North End Coffee,Banani )",
+        "6.30PM - 6.00PM (The Reading Cafe, Banani)"
+      ],
       "price": 65000
     },
     {
-      "_id":5,
       "name": "Xiaomi Pad 5",
       "photo": "https://i.ibb.co/TkRQhQW/Xiaomi-Pad-5.jpg",
       "usage": "1.5 Year",
@@ -92,10 +103,13 @@
       "usb": "USB Type-C",
       "battery": "Li-Po 8720 mAh, non-removable",
       "color": "Cosmic Gray",
+      "slots":[
+        "4.30PM - 5.00PM (Bangabandhu College, Mirpur )",
+        "6.30PM - 6.00PM (Shopnonogor Residential playground, Kalshi Flyover)"
+      ],
       "price": 14000
     },
     {
-      "_id":6,
       "name": "Xiaomi Pad 6",
       "photo": "https://i.ibb.co/kxW97rP/Xiaomi-Pad-6.jpg",
       "usage": "1 Month",
@@ -111,6 +125,10 @@
       "usb": "USB Type-C 3.2, accessory connector",
       "battery": "Li-Po 8840 mAh, non-removable",
       "color": "Black",
+      "slots":[
+        "4.30PM - 5.00PM (BRAC University,Mohakhali )",
+        "6.30PM - 6.00PM (Titumir College, Mohakhali)"
+      ],
       "price": 30000
     }
   ]
