@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 
 const BookingModal = ({phoneBooked,selectDate, setPhoneBooked, refetch}) => {
 
-    const {name:deviceName,slots,price} = phoneBooked;
+    const { name:deviceName ,slots,price} = phoneBooked;
     const date = format(selectDate, 'PP');
     const {user} = useContext(AuthContext);
 
@@ -26,6 +26,7 @@ const BookingModal = ({phoneBooked,selectDate, setPhoneBooked, refetch}) => {
             phone,
             price
         }
+        console.log(booking);
         fetch('http://localhost:5000/booking',{
             method: 'POST',
             headers:{
@@ -44,7 +45,7 @@ const BookingModal = ({phoneBooked,selectDate, setPhoneBooked, refetch}) => {
                 
             }
             else{
-                toast.error(data.error);
+                toast.error(data.message);
             }
         })
     }

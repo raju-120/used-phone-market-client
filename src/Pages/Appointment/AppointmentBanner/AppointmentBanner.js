@@ -19,6 +19,7 @@ const AppointmentBanner = ({selectDate, setSelectedDate}) => {
 
                     </div>
                 </div>
+                
             </div>
         </header>
     );

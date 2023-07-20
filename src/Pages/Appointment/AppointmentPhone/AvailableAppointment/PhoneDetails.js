@@ -5,6 +5,7 @@ const PhoneDetails = () => {
     const {name,photo,price,usage,camera,chipset,color,network,
         os,selfie,selfieVDO,sim,storage,usb,video,battery} = useLoaderData();
     
+        
         return (
         <div className='mt-5'>
             <div className="card flex flex-col-row lg:card-side bg-base-200 shadow-xl">

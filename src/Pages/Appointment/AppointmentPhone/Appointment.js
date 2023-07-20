@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AppointmentBanner from './AppointmentBanner/AppointmentBanner';
+import AppointmentBanner from '../AppointmentBanner/AppointmentBanner';
 import AvailableAppointment from './AvailableAppointment/AvailableAppointment';
 
 const Appointment = () => {
@@ -16,6 +16,7 @@ const Appointment = () => {
             ></AvailableAppointment>
         </div>
     );
+
 };
 
 export default Appointment;
