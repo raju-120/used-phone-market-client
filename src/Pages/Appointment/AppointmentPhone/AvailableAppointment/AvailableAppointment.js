@@ -4,6 +4,7 @@ import AppointmentPhone from './AppointmentPhone';
 import BookingModal from '../../BookingModal/BookingModal';
 import { useQuery } from 'react-query';
 import Loading from '../../../../Shared/Loading/Loading';
+import ComplainModal from '../../../../Shared/CompainModal/ComplainModal';
 
 const AvailableAppointment = ({selectDate}) => {
     /* const [appointmentPhones, setAppointmentPhones] = useState([]);  */
@@ -32,6 +33,7 @@ const AvailableAppointment = ({selectDate}) => {
             })
     },[]) */
 
+
     return (
         <div className='mt-12'>
             <p className='font-bold text-2xl text-center'>Available Phones on {format(selectDate, 'PP')}</p>
@@ -54,6 +56,13 @@ const AvailableAppointment = ({selectDate}) => {
                     refetch={refetch}
                 ></BookingModal>
             }
+            {/* {
+                phoneBooked &&
+                <ComplainModal
+                    phoneBooked={phoneBooked}
+                    refetch={refetch}
+                ></ComplainModal>
+            } */}
         </div>
     );
 };

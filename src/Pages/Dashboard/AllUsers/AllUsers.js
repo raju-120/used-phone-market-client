@@ -11,6 +11,7 @@ const AllUsers = () => {
     const closeModal = () =>{
         setDeleteUser(null);
     }
+    
 
     const {data: emailusers =[], isLoading, refetch} = useQuery({
         queryKey: ['emailusers'],

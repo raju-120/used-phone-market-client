@@ -26,6 +26,7 @@ const BookingModal = ({phoneBooked,selectDate, setPhoneBooked, refetch}) => {
             phone,
             price
         }
+        
         console.log(booking);
         fetch('http://localhost:5000/booking',{
             method: 'POST',

@@ -25,6 +25,7 @@ const AppointmentPhone = ({appointmentPhone, setPhoneBooked}) => {
                 </div>
             </div>
         </div>
+        
     );
 };
 

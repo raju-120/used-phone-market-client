@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import ComplainModal from '../../../../Shared/CompainModal/ComplainModal';
 
 const WatchDetails = () => {
     const {name,photo,price,usage,camera,chipset,color,network,
-        os,sim,storage,battery} = useLoaderData();
+        os,sim,storage,battery,_id} = useLoaderData();
+
+        const [report, setReport] = useState(null);
+
+        const closeModal =() =>{
+            setReport(null);
+        }
     
     return (
         <div className='mt-5'>
@@ -18,6 +25,15 @@ const WatchDetails = () => {
                     <p>Used: <span className='text-xl font-bold'>{usage}</span></p>
                     <div>
                         <Link className='btn btn-primary' to='/watchappointment'>Go to the watch section</Link>
+
+                        <label  
+                            htmlFor="complain-modal" 
+                            className="btn btn-md btn-info flex-col lg:ml-14"
+                            onClick={() => setReport(_id)}
+                            >
+                                Complain
+                        </label>
+                        
                     </div>
                 </div>
 
@@ -97,6 +113,14 @@ const WatchDetails = () => {
                     </tbody>
                 </table>
             </div>
+            {
+                report && 
+                <ComplainModal
+                    report={report}
+                    closeModal={closeModal}
+                    name={name}
+                ></ComplainModal>
+            }
         </div>
     );
 };

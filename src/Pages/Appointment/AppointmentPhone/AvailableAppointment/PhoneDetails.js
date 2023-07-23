@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import ComplainModal from '../../../../Shared/CompainModal/ComplainModal';
 
 const PhoneDetails = () => {
     const {name,photo,price,usage,camera,chipset,color,network,
-        os,selfie,selfieVDO,sim,storage,usb,video,battery} = useLoaderData();
+        os,selfie,selfieVDO,sim,storage,usb,video,battery,_id} = useLoaderData();
+
+       
+        const [report, setReport] = useState(null);
+        const closeModal =() =>{
+            setReport(null)
+        }
+
+        
+        
     
         
         return (
@@ -19,9 +29,18 @@ const PhoneDetails = () => {
                     <p>Used: <span className='text-xl font-bold'>{usage}</span></p>
                     <div>
                         <Link className='btn btn-primary' to='/appointment'>Go to the available phone section</Link>
+                        
+                        <label  
+                            htmlFor="complain-modal" 
+                            className="btn btn-md btn-info flex-col lg:ml-14"
+                            onClick={() => setReport(_id)}
+                            >
+                                Complain
+                        </label>
+
                     </div>
                 </div>
-
+                
             </div>
 
 
@@ -98,6 +117,14 @@ const PhoneDetails = () => {
                     </tbody>
                 </table>
             </div>
+            {
+                report && 
+                <ComplainModal
+                    report={report}
+                    closeModal={closeModal}
+                    name={name}
+                ></ComplainModal>
+            }
         </div>
     );
 };
