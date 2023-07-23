@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import googlePhoto from '../../assets/logo/Google__G__Logo.svg.webp';
@@ -18,9 +18,12 @@ const SignUp = () => {
     const [signUpError, setSignUpError] = useState('');
     const [createdUserEmail,setCreatedUserEmail] = useState('');
     const [token] = useToken(createdUserEmail);
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     if(token){
-        navigate('/');
+        navigate(from, {replace: true});
     }
 
 

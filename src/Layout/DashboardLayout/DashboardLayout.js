@@ -5,8 +5,8 @@ import { Link, Outlet } from 'react-router-dom';
 const DashboardLayout = () => {
 
     const menuItems = <React.Fragment>
-                            <li className='mb-2 mt-10 text-lg'><Link to='/dashboard'>My Appointment</Link></li>
-                            <li className='mb-2 text-lg'><Link to='/dashboard/users'>Users Collection</Link></li>
+                            <li className='mb-2 mt-10 text-lg bg-yellow-400 rounded-lg' ><Link to='/dashboard'>My Appointment</Link></li>
+                            <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/users'>All Users</Link></li>
                     </React.Fragment>
     return (
         <div>
@@ -20,7 +20,7 @@ const DashboardLayout = () => {
                 </div> 
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-                    <ul className="menu p-8 w-72 h-full bg-base-200 text-base-content">
+                    <ul className="menu p-8 w-72 h-full bg-sky-500 rounded-lg text-base-content">
                         {menuItems}
                         
                     </ul>

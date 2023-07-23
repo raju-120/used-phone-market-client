@@ -1,31 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { useQuery } from 'react-query';
+import Loading from '../../../Shared/Loading/Loading';
+import ConfirmationModal from '../../../Shared/ConfirmModal/ConfirmModal';
 
 const AllUsers = () => {
 
-    const {data: emailusers =[]} = useQuery({
+    const [deleteUser, setDeleteUser] = useState(null);
+
+    const closeModal = () =>{
+        setDeleteUser(null);
+    }
+
+    const {data: emailusers =[], isLoading, refetch} = useQuery({
         queryKey: ['emailusers'],
         queryFn: async () =>{
-            const res = await fetch('http://localhost:5000/emailusers');
-            const data = await res.json();
-            return data;
+            try{
+                const res = await fetch('http://localhost:5000/emailusers',{
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                const data = await res.json();
+                return data;
+            }
+            catch{
+
+            }
+
+            
         }
-    })
+    });
+
+    if(isLoading)
+    {
+        return <Loading></Loading>
+    }
+
+    const handleDelete = (user) =>{
+        fetch(`http://localhost:5000/emailusers/${user._id}`,{
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deleteCount > 0 )
+            {
+                toast.success(`${user.name} deleted successfully.`);
+                refetch();
+            }
+        })
+    }
+
     return (
         <div className='ml-5'>
-            <h2 className="text-3xl mb-5">My Appointments</h2>
+            <h2 className="text-3xl mb-5 bg-red-400 p-5 rounded-xl">My Appointments</h2>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table bg-cyan-200">
                     
                     <thead>
-                        <tr>
+                        <tr >
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {
                             emailusers &&
                             emailusers.map((user,i) =>
@@ -33,7 +76,9 @@ const AllUsers = () => {
                                 <th>{i+1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td className='btn btn-sm btn-warning p-2'>Delete</td>
+                                <td>
+                                    <label onClick={() => setDeleteUser(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
+                                </td>
                             </tr>
                             )
                         }
@@ -41,6 +86,16 @@ const AllUsers = () => {
                     </tbody>
                 </table>
             </div>
+            {
+                deleteUser && <ConfirmationModal
+                    title={`Are you sure that you want to delete?`}
+                    message={`If you want to delete Mr. ${deleteUser.name}.It can not be recover.`}
+                    successAction={handleDelete}
+                    successButtonName='Delete'
+                    modalData={deleteUser}
+                    closeModal={closeModal}
+                ></ConfirmationModal>
+            }
         </div>
     );
 };
