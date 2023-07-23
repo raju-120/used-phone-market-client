@@ -5,6 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import googlePhoto from '../../assets/logo/Google__G__Logo.svg.webp';
 import facebookPhoto from '../../assets/logo/Facebook_f_logo_(2021).svg.png';
+import useToken from '../../UseHooks/UseToken/useToken';
 
 
 const SignUp = () => {
@@ -15,6 +16,12 @@ const SignUp = () => {
 
     /* const [createdEmail,setCreatedEmail] = useState(''); */
     const [signUpError, setSignUpError] = useState('');
+    const [createdUserEmail,setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+
+    if(token){
+        navigate('/');
+    }
 
 
     const handleSignup= (data)=>{
@@ -25,7 +32,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('User Created Successfully');
-                navigate('/');
+                
                 const userInfo = {
                     displayName: data.name
                 }
@@ -45,16 +52,22 @@ const SignUp = () => {
                 fetch('http://localhost:5000/emailusers',{
                     method:'POST',
                     headers: {
-                        'content-type' : 'application/json'
+                        'content-type' : 'application/json',
                     },
                     body: JSON.stringify(user)
                 })
                 .then( res => res.json())
-                .then( err => console.error(err)
-                )
+                .then( data => {
+                    setCreatedUserEmail(email); 
+                    /* navigate('/');
+                    console.log(data); */
+
+                })
             }
     } 
 
+    
+ 
     const handleGoogleLogIn= () =>{
         googleLogin()
             .then(result =>{

@@ -5,12 +5,15 @@ import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ResetPassword from "../../Pages/Login/ResetPassword";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import AppointmentTablet from "../../Pages/Appointment/AppointmentTablet/AppointmentTablet";
 import Appointment from "../../Pages/Appointment/AppointmentPhone/Appointment";
 import PhoneDetails from "../../Pages/Appointment/AppointmentPhone/AvailableAppointment/PhoneDetails";
 import TabletDetails from "../../Pages/Appointment/AppointmentTablet/AvailableAppointmentTablet/TabletDetails";
 import AppointmentWatch from "../../Pages/Appointment/AppointmentWatch/AppointmentWatch";
+import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
+import WatchDetails from "../../Pages/Appointment/AppointmentWatch/AvailableWatchAppointment/WatchDetails";
+import MyAppointment from "../../Pages/Dashboard/MyAppointment/MyAppointment";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
     {
@@ -55,13 +58,29 @@ const router = createBrowserRouter([
             {
                 path: '/watchappointment',
                 element: <AppointmentWatch></AppointmentWatch>
+            },
+            {
+                path: '/watchDetails/:_id',
+                element: <WatchDetails></WatchDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/watchCollections/${params._id} `)
             }
         ]
     },
     {
-        path:'/dashboard',
-        element: <PrivateRoute> <Dashboard></Dashboard> </PrivateRoute>
+        path: '/dashboard',
+        element: <DashboardLayout></DashboardLayout>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyAppointment></MyAppointment>
+            },
+            {
+                path: '/dashboard/users',
+                element: <AllUsers></AllUsers>
+            }
+        ]
     }
+    
 ])
 
 export default router;

@@ -27,7 +27,7 @@ const WatchBookingModal = ({watchBooked,selectDate,refetch,setWatchBooked}) => {
             price
         }
         console.log(watchBooking);
-        fetch('http://localhost:5000/watchBookings',{
+        fetch('http://localhost:5000/booking',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

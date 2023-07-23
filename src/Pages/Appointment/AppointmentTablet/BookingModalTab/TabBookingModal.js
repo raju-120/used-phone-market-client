@@ -28,7 +28,7 @@ const TabBookingModal = ({selectDate,tabletBooked,setTabletBooked,refetch}) => {
             price
         }
         console.log(booking)
-        fetch(`http://localhost:5000/tabBookings`,{
+        fetch(`http://localhost:5000/booking`,{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

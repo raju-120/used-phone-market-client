@@ -14,6 +14,7 @@ const Navbar = () => {
             .catch(err =>console.error(err))
     }
 
+
     const itemsMenu = <React.Fragment>
         <li><Link to='/' className='text-xl'>Home</Link></li>
         <li><Link className='text-xl'>About</Link></li>

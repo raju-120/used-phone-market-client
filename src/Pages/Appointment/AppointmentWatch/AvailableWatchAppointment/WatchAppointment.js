@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const WatchAppointment = ({appointmentWatch,setWatchBooked}) => {
-    const {name,price,usage,slots} = appointmentWatch;
+    const {name,price,usage,slots,_id} = appointmentWatch;
     return (
         <div className='mt-5'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -14,7 +14,7 @@ const WatchAppointment = ({appointmentWatch,setWatchBooked}) => {
                      
                     <div className="mt-3 card-actions justify-between">
                         
-                        <Link className="btn btn-primary">Details</Link>
+                        <Link to={`/watchDetails/${_id}`} className="btn btn-primary">Details</Link>
 
                         <label 
                             htmlFor="watch-booking-modal" 
