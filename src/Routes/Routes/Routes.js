@@ -14,6 +14,7 @@ import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 import WatchDetails from "../../Pages/Appointment/AppointmentWatch/AvailableWatchAppointment/WatchDetails";
 import MyAppointment from "../../Pages/Dashboard/MyAppointment/MyAppointment";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import ComplainBox from "../../Pages/Dashboard/ComplainedBox/ComplainBox";
 
 const router = createBrowserRouter([
     {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/users',
                 element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/complain',
+                element: <ComplainBox></ComplainBox>
             }
         ]
     }

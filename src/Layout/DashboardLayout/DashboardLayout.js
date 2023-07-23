@@ -7,6 +7,7 @@ const DashboardLayout = () => {
     const menuItems = <React.Fragment>
                             <li className='mb-2 mt-10 text-lg bg-yellow-400 rounded-lg' ><Link to='/dashboard'>My Appointment</Link></li>
                             <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/users'>All Users</Link></li>
+                            <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/complain'>All Complain</Link></li>
                     </React.Fragment>
     return (
         <div>

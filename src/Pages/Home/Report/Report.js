@@ -6,11 +6,13 @@ const Report = () => {
     const handleComplain = (event) =>{
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const report = form.report.value;
 
 
         const complained={
+            name,
             email,
             report
         }
@@ -42,6 +44,12 @@ const Report = () => {
                     </div>
                     <div className="mb-5 card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
                         <form onSubmit={handleComplain} className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Full Name</span>
+                                </label>
+                                <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

@@ -6,6 +6,8 @@ const ConfirmationModal = ({title, message, closeModal,modalData,successAction,s
             <input type="checkbox" id="confirmation-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
+                <label htmlFor="confirmation-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                
                 
                     <h3 className="font-bold text-lg">{title}</h3>
                     <p className="py-4 ">{message}</p>
@@ -24,5 +26,6 @@ const ConfirmationModal = ({title, message, closeModal,modalData,successAction,s
         </div>
     );
 };
+
 
 export default ConfirmationModal;
