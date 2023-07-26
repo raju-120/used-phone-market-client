@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../../Shared/Navbar/Navbar';
 import { Link, Outlet } from 'react-router-dom';
+import useAdmin from '../../UseHooks/UseAdmin/useAdmin';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const DashboardLayout = () => {
+    const {user} = useContext(AuthContext)
+    const [isAdmin] = useAdmin(user?.email)
 
     const menuItems = <React.Fragment>
                             <li className='mb-2 mt-10 text-lg bg-yellow-400 rounded-lg' ><Link to='/dashboard'>My Appointment</Link></li>
-                            <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/users'>All Users</Link></li>
-                            <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/complain'>All Complain</Link></li>
+                            {
+                                isAdmin && <>
+                                    <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/users'>All Users</Link></li>
+                                    <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/complain'>All Complain</Link></li>
+                                    <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/addProduct'>Add Product</Link></li>
+                            
+                                </>
+                            } 
                     </React.Fragment>
     return (
         <div>

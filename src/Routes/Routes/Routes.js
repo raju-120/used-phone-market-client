@@ -15,6 +15,8 @@ import WatchDetails from "../../Pages/Appointment/AppointmentWatch/AvailableWatc
 import MyAppointment from "../../Pages/Dashboard/MyAppointment/MyAppointment";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import ComplainBox from "../../Pages/Dashboard/ComplainedBox/ComplainBox";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 
 const router = createBrowserRouter([
     {
@@ -77,12 +79,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/users',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: '/dashboard/complain',
-                element: <ComplainBox></ComplainBox>
-            }
+                element: <AdminRoute><ComplainBox></ComplainBox></AdminRoute>
+            },
+            {
+                path: '/dashboard/addProduct',
+                element: <AdminRoute> <AddProduct></AddProduct> </AdminRoute>
+            },
         ]
     }
     

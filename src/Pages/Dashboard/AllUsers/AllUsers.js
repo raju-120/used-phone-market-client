@@ -47,13 +47,34 @@ const AllUsers = () => {
         })
         .then(res => res.json())
         .then(data => {
-            if(data.deleteCount > 0 )
+            if(data.deletedCount > 0 )
             {
                 toast.success(`${user.name} deleted successfully.`);
                 refetch();
             }
         })
     }
+
+
+    const handleMakeAdmin = (id) =>{
+        fetch(`http://localhost:5000/emailusers/admin/${id}`,{
+            method: 'PUT',
+            headers:{
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0 )
+            {
+                toast.success(`Make admin successfully`);
+                refetch();
+            }
+        }) 
+        
+    }
+
 
     return (
         <div className='ml-5'>
@@ -66,6 +87,7 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -77,6 +99,13 @@ const AllUsers = () => {
                                 <th>{i+1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td> 
+                                    {
+                                        user?.role !== 'admin' &&
+                                        <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-sm btn-primary'>Make Admin</button> 
+                                    }
+                                </td>
+
                                 <td>
                                     <label onClick={() => setDeleteUser(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                                 </td>
