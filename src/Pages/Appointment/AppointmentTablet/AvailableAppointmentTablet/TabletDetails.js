@@ -4,7 +4,7 @@ import ComplainModal from '../../../../Shared/CompainModal/ComplainModal';
 
 const TabletDetails = () => {
     const {name,photo,price,usage,camera,chipset,color,network,
-        os,selfie,selfieVDO,sim,storage,usb,video,battery,_id} = useLoaderData();
+        os,selfie,selfieVDO,sim,storage,usb,video,battery,_id,postTime,sellerName,sellerPhoneNumber} = useLoaderData();
 
         
         const [report, setReport] = useState(null);
@@ -24,6 +24,17 @@ const TabletDetails = () => {
                     <p className='mt-2 text-xl'>Price: <span className='font-bold text-indigo-500'>{price}</span> Tk</p>
                             
                     <p>Used: <span className='text-xl font-bold'>{usage}</span></p>
+                    
+                    <div className='mb-5 flex justify-between'>
+                        <div>
+                            <p>Seller Name: <span className='text-xl font-bold'>{sellerName}</span></p>
+                            <p>Contact-Number: <span className='text-xl font-bold'>{sellerPhoneNumber}</span></p>
+                        </div>
+                        <div>
+                            <p>Posted at {postTime}</p>
+                        </div>
+                    </div>
+
                     <div>
                         <Link className='btn btn-primary' to='/appointmenttab'>Go to the Tablet section</Link>
 

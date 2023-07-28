@@ -1,20 +1,18 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../../../Context/AuthProvider';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../../../Context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import {  useNavigate } from 'react-router-dom';
 
-const AddPhone = () => {
+const AddSmartWatch = () => {
     const {register,handleSubmit} = useForm();
     const {user} = useContext(AuthContext); 
     const date = new Date().toLocaleString();  
 
     const navigate = useNavigate(); 
     const imageHostKey = process.env.REACT_APP_imgBB_KEY;
-    
 
-
-    const handleAddPhoneProduct = (data) =>{
+    const handleAddWatchProduct = (data) =>{
         
         const image = data.image[0]
         const formData = new FormData();
@@ -55,7 +53,7 @@ const AddPhone = () => {
                     photo: imgData.data.url,
                     postTime: date
                 }
-                fetch('http://localhost:5000/phoneCollections',{
+                fetch('http://localhost:5000/watchCollections',{
                     method: 'POST',
                     headers:{
                         'content-type' : 'application/json'
@@ -75,15 +73,16 @@ const AddPhone = () => {
         
         
     }
+    
     return (
         <div className='mt-5 mb-5'>
             <div className="bg-base-200 rounded-xl mb-2">
-                <h1 className="text-3xl p-5 font-bold text-center mb-5">Add the details about the Phone</h1>
+                <h1 className="text-3xl p-5 font-bold text-center mb-5">Add the details about the Watch</h1>
                 <div className="hero-content mb-5">
                     
                     <div className="card  w-full p-5 lg:max-w-full shadow-2xl bg-base-100 mb-5">
                         
-                        <form onSubmit={handleSubmit(handleAddPhoneProduct)}> 
+                        <form onSubmit={handleSubmit(handleAddWatchProduct)}> 
                             
                             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-5'>
                                         
@@ -115,7 +114,7 @@ const AddPhone = () => {
                                     { 
                                         ...register('contact',
                                                 { 
-                                                    required: 'Phone-number required'
+                                                    required: 'Seller-number required'
                                                 }
                                             )
                                     }
@@ -125,17 +124,17 @@ const AddPhone = () => {
                                     { 
                                         ...register('name',
                                                 { 
-                                                    required: 'Phone-Name required'
+                                                    required: 'Watch-Name required'
                                                 }
                                             )
                                     }
-                                placeholder='Phone Name'  className="input input-bordered w-full "/>
+                                placeholder='Watch Name'  className="input input-bordered w-full "/>
 
                                 <input type="text"
                                     { 
                                     ...register('usage',
                                             { 
-                                                required: 'Phone-Used-Time required'
+                                                required: 'Watch-Used-Time required'
                                             }
                                         )
                                     } 
@@ -165,21 +164,21 @@ const AddPhone = () => {
                                 { 
                                 ...register('os',
                                         { 
-                                            required: 'Phone-OS-version required'
+                                            required: 'Watch-OS-version required'
                                         }
                                     )
                                 }
-                            placeholder='Phones-OS'  className="input input-bordered w-full " required/>
+                            placeholder='Watchs-OS'  className="input input-bordered w-full " required/>
                                 
                                 <input type="text" 
                                 { 
                                 ...register('chipset',
                                         { 
-                                            required: 'Phone-Chipset required'
+                                            required: 'Watch-Chipset required'
                                         }
                                     )
                                 } 
-                            placeholder='Phones-Chipset'  className="input input-bordered w-full " required/>
+                            placeholder='Watchs-Chipset'  className="input input-bordered w-full " required/>
                         
                                 <input type="text" 
                                 { 
@@ -199,38 +198,9 @@ const AddPhone = () => {
                                         }
                                     )
                                 }
-                            placeholder='Rear-Camera'  className="input input-bordered w-full " required/>
+                            placeholder='Camera'  className="input input-bordered w-full " required/>
                         
-                                <input type="text"  
-                                { 
-                                ...register('video',
-                                        { 
-                                            required: 'Rare-Camera-Video-info required'
-                                        }
-                                    )
-                                }
-                            placeholder='Rear-Camera-Video'  className="input input-bordered w-full " required/>
-                        
-                                <input type="text"  
-                            { 
-                                ...register('selfie',
-                                        { 
-                                            required: 'Selfie-Camera-info required'
-                                        }
-                                    )
-                                }
-                            placeholder='Selfie-Camera'  className="input input-bordered w-full " required/>
-
-                                <input type="text"  
-                                    { 
-                                    ...register('selfieVDO',
-                                            { 
-                                                required: 'Selfie-Camera-Video-Info required'
-                                            }
-                                        )
-                                    }
-                                placeholder='Selfie-Camera-Video'  className="input input-bordered w-full " required/>
-                            
+                                
                                 <input type="text" 
                                     { 
                                     ...register('usb',
@@ -245,7 +215,7 @@ const AddPhone = () => {
                                     { 
                                     ...register('battery',
                                             { 
-                                                required: 'Phone-Battery-Info required'
+                                                required: 'Watch-Battery-Info required'
                                             }
                                         )
                                     }
@@ -255,17 +225,17 @@ const AddPhone = () => {
                                 { 
                                 ...register('color',
                                         { 
-                                            required: 'Phone-Color required'
+                                            required: 'Watch-Color required'
                                         }
                                     )
                                 }
-                            placeholder='Phone-Color'  className="input input-bordered w-full " required/>
+                            placeholder='Watch-Color'  className="input input-bordered w-full " required/>
 
                                 <input type="text" 
                                 { 
                                     ...register('price',
                                             { 
-                                                required: 'Phone-Price required'
+                                                required: 'Watch-Price required'
                                             }
                                         )
                                     }
@@ -327,8 +297,7 @@ const AddPhone = () => {
                 </div>
             </div>
         </div>
-        
     );
 };
 
-export default AddPhone;
+export default AddSmartWatch;

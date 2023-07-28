@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import AddPhone from './AddPhone/AddPhone';
+import AddSmartWatch from './AddSmartWatch/AddSmartWatch';
+import AddTablet from './AddTablet/AddTablet';
 
 const AddProduct = () => {
 
@@ -73,6 +75,14 @@ const AddProduct = () => {
             {
                     select.selection === 'phone' &&
                     <AddPhone></AddPhone>
+            }
+            {
+                    select.selection === 'tablet' &&
+                    <AddTablet></AddTablet>
+            }
+            {
+                select.selection === 'smart-watch' &&
+                <AddSmartWatch></AddSmartWatch>
             }
         </div>
     );

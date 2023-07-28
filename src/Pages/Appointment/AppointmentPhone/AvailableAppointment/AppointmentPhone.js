@@ -10,6 +10,7 @@ const AppointmentPhone = ({appointmentPhone, setPhoneBooked}) => {
                     <h2 className="text-2xl text-primary text-center">{name}</h2>
                     <p className='text-center'>Price: <span className='text-secondary font-semibold'>{price} TK</span> </p>
                     <p className='text-center'>Used: <span className='font-semibold'>{usage} </span> </p>
+                    
                     <p className='text-center'>{slots.length} {slots.length > 1 ? 'Spaces' : 'Space'}</p>
 
                     <div className="mt-5 card-actions justify-between">
