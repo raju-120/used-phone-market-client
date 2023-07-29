@@ -21,10 +21,10 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='ml-5'>
-            <h2 className="text-3xl mb-5 bg-red-400 p-5 rounded-xl">Add a selling product</h2>
+        <div>
+            <h2 className="text-3xl mb-5 bg-red-400 p-5 text-center">Add a selling product</h2>
             <div>
-                <h2 className='text-xl font-semibold'>Please select your product category.</h2>
+                <h2 className='text-xl font-semibold lg:ml-56'>Please select your product category.</h2>
                 
                 <div className='mt-5 lg:mx-56 grid grid-cols-1 lg:grid-cols-3'>
                 

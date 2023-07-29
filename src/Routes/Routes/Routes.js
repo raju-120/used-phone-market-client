@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
-import SignUp from "../../Pages/SignUp/SignUp";
 import ResetPassword from "../../Pages/Login/ResetPassword";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AppointmentTablet from "../../Pages/Appointment/AppointmentTablet/AppointmentTablet";
@@ -17,6 +16,9 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import ComplainBox from "../../Pages/Dashboard/ComplainedBox/ComplainBox";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
+import SelectSignUpRole from "../../Pages/SignUp/SelectSignUpRole/SelectSignUpRole";
+import SellerSignUp from "../../Pages/SignUp/SelectSignUpRole/SellerSignUp/SellerSignUp";
+import SignUp from "../../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -32,7 +34,15 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: '/registration',
+                path: '/SelectSignUpRole',
+                element: <SelectSignUpRole></SelectSignUpRole>
+            },
+            {
+                path: '/sellerRegistration',
+                element: <SellerSignUp></SellerSignUp>
+            },
+            {
+                path: '/buyerRegistration',
                 element: <SignUp></SignUp>
             },
             {
@@ -87,7 +97,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/addProduct',
-                element: <AdminRoute> <AddProduct></AddProduct> </AdminRoute>
+                element: <AddProduct></AddProduct>
             },
         ]
     }

@@ -119,7 +119,7 @@ const Login = () => {
 
                         </form>
                         
-                        <p className='ml-8 mb-5 '>New to used-phone? Please <Link to='/registration' className='text-xl font-bold text-info'>SignUp</Link> </p>
+                        <p className='ml-8 mb-5 '>New to used-phone? Please <Link to='/SelectSignUpRole' className='text-xl font-bold text-info'>SignUp</Link> </p>
                         
                         {/* Other platform  login with  */}
 

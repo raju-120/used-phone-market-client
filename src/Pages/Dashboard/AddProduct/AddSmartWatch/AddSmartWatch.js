@@ -240,7 +240,7 @@ const AddSmartWatch = () => {
                                         )
                                     }
                                 placeholder='Price'  className="input input-bordered w-full " required/>
-                            
+                            <br />
                                 <div className='flex justify-between'>
                                     <div className="form-control">
                                         <label className="label">

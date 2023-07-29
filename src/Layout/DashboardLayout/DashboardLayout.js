@@ -14,10 +14,11 @@ const DashboardLayout = () => {
                                 isAdmin && <>
                                     <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/users'>All Users</Link></li>
                                     <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/complain'>All Complain</Link></li>
-                                    <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/addProduct'>Add Product</Link></li>
                             
                                 </>
                             } 
+                            
+                            <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/addProduct'>Add Product</Link></li>
                     </React.Fragment>
     return (
         <div>
