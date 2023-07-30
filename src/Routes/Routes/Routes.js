@@ -19,6 +19,7 @@ import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import SelectSignUpRole from "../../Pages/SignUp/SelectSignUpRole/SelectSignUpRole";
 import SellerSignUp from "../../Pages/SignUp/SelectSignUpRole/SellerSignUp/SellerSignUp";
 import SignUp from "../../Pages/SignUp/SignUp";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
     {
@@ -97,7 +98,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/addProduct',
-                element: <AddProduct></AddProduct>
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
             },
         ]
     }

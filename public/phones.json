@@ -1,6 +1,5 @@
 [
     {
-        "_id": 1,
         "name": "Xiaomi Redmi Note-9Pro",
         "photo": "https://i.ibb.co/xGF9jyq/note9pro.jpg",
         "usage": "1 year",
@@ -23,7 +22,6 @@
         "price": 13500
     },
     {
-        "_id": 2,
         "name": "Xiaomi Redmi Note-10Pro",
         "photo": "https://i.ibb.co/B6YJ2kX/Note10-Pro.png",
         "usage": "1.5 year",
@@ -46,7 +44,6 @@
         "price": 14500
     },
     {
-        "_id": 3,
         "name": "Samsung S21 Ultra",
         "photo": "https://i.ibb.co/H44ZfMD/s21ultra.jpg",
         "usage": "6 Month",
@@ -69,7 +66,6 @@
         "price": 40000
     },
     {
-        "_id": 4,
         "name": "Samsung S22 Ultra",
         "photo": "https://i.ibb.co/XpwhbnS/s22ultra.jpg",
         "usage": "1.2 year",
@@ -92,7 +88,6 @@
         "price": 36000
     },
     {
-        "_id": 5,
         "name": "Google Pixel 5",
         "photo": "https://i.ibb.co/jkNcxj0/Pixel-5.jpg",
         "usage": "8 Month",
@@ -115,7 +110,6 @@
         "price": 40000
     },
     {
-        "_id": 6,
         "name": "Google Pixel 6",
         "photo": "https://i.ibb.co/vcPkndQ/Pixel-6.png",
         "usage": "3 Month",
@@ -138,7 +132,6 @@
         "price": 45000
     },
     {
-        "_id": 7,
         "name": "Iphone 12 pro-Max",
         "photo": "https://i.ibb.co/rvWWwfm/iphone12promax.jpg",
         "usage": "2 Year",
@@ -161,7 +154,6 @@
         "price": 95000
     },
     {
-        "_id": 8,
         "name": "Iphone 13 pro-Max",
         "photo": "https://i.ibb.co/5cHF2LL/i-Phone13-Pro-Max.png",
         "usage": "9 Month",

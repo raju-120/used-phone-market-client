@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const AppointmentPhone = ({appointmentPhone, setPhoneBooked}) => {
     const {name, slots,price,usage,_id} = appointmentPhone;
     return (
+        
         <div>
             <div className="card shadow-xl">
                 <div className="card-body">
