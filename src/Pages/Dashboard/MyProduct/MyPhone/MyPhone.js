@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useQuery } from 'react-query';
-import Loading from '../../../Shared/Loading/Loading';
 import { toast } from 'react-hot-toast';
-import ConfirmationModal from '../../../Shared/ConfirmModal/ConfirmModal';
-import { AuthContext } from '../../../Context/AuthProvider';
+import { AuthContext } from '../../../../Context/AuthProvider';
+import Loading from '../../../../Shared/Loading/Loading';
+import ConfirmationModal from '../../../../Shared/ConfirmModal/ConfirmModal';
 
 const MyPhone = () => {
     const {user} = useContext(AuthContext);
@@ -54,17 +54,15 @@ const MyPhone = () => {
 
     return (
         <div className='ml-5'>
-            <h2 className="text-3xl mb-5 bg-red-400 p-5 rounded-xl">My Appointments</h2>
             <div className="overflow-x-auto">
-                <table className="table bg-cyan-200">
+                <table className="table bg-emerald-300">
                     
                     <thead>
                         <tr >
                             <th></th>
+                            <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Work</th>
-                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -74,8 +72,15 @@ const MyPhone = () => {
                             phones.map((user,i) =>
                             <tr key={user._id}>
                                 <th>{i+1}</th>
+                                <td> 
+                                    <div className="avatar">
+                                        <div className="w-24 rounded-xl">
+                                            <img src={user?.photo} alt="phones-photos"/>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>{user.name}</td>
-                                <td>{user.email}</td>
+                                <td>{user.sellerEmail}</td>
 
                                 <td>
                                     <label onClick={() => setDeleteUser(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>

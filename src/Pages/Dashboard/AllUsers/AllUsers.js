@@ -56,24 +56,18 @@ const AllUsers = () => {
     }
 
 
-    const handleMakeAdmin = (id) =>{
+    /* const handleMakeAdmin =(id) =>{
         fetch(`http://localhost:5000/emailusers/admin/${id}`,{
             method: 'PUT',
-            headers:{
+            headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then(res => res.json())
-        .then(data => {
+        .then( res => res.json())
+        .then(data =>{
             console.log(data);
-            if(data.modifiedCount > 0 )
-            {
-                toast.success(`Make admin successfully`);
-                refetch();
-            }
-        }) 
-        
-    }
+        })
+    } */
 
 
     return (
@@ -88,7 +82,6 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Work</th>
-                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -101,12 +94,12 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
-                                <td> 
+                                {/* <td> 
                                     {
                                         user?.role !== 'admin' &&
-                                        <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-sm btn-primary'>Make Admin</button> 
+                                        <button onClick={() => handleMakeAdmin(user?._id)} className='btn btn-sm btn-primary'>Make Admin</button> 
                                     }
-                                </td>
+                                </td> */}
 
                                 <td>
                                     <label onClick={() => setDeleteUser(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>

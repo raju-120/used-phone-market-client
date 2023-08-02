@@ -20,6 +20,8 @@ import SelectSignUpRole from "../../Pages/SignUp/SelectSignUpRole/SelectSignUpRo
 import SellerSignUp from "../../Pages/SignUp/SelectSignUpRole/SellerSignUp/SellerSignUp";
 import SignUp from "../../Pages/SignUp/SignUp";
 import SellerRoute from "../SellerRoute/SellerRoute";
+import MyAllProduct from "../../Pages/Dashboard/MyProduct/MyAllProduct";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -100,6 +102,15 @@ const router = createBrowserRouter([
                 path: '/dashboard/addProduct',
                 element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
             },
+            {
+                path: '/dashboard/myallProduct',
+                element: <SellerRoute> <MyAllProduct></MyAllProduct> </SellerRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader:({params}) => fetch(`http://localhost:5000/booking/${params.id}`)
+            }
         ]
     }
     
