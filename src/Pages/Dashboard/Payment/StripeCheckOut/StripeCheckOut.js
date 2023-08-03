@@ -6,9 +6,10 @@ const StripeCheckOut = ({booking}) => {
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
     const [success, setSuccess] = useState('');
+    const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
-    const {price,user,email,phone} = booking;
+    const {price,user,email,phone,_id} = booking;
     const stripe = useStripe();
     const elements = useElements(); 
    
@@ -48,7 +49,7 @@ const StripeCheckOut = ({booking}) => {
         else{
             setCardError('');
         }
-
+        setSuccess('');
         const {paymentIntent, error:confirmError} = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -62,16 +63,42 @@ const StripeCheckOut = ({booking}) => {
               },
             },
         );
-        /* if(confirmError){
+        if(confirmError){
             setCardError(confirmError.message);
             return;
         }
         if(paymentIntent.status === "succeeded")
         {
-            setSuccess('Congrats! Your payment completed');
-            setTransactionId(paymentIntent.id);
-        } */
-        console.log('paymentIntent',paymentIntent)
+            console.log('card info', card)
+            const payment ={
+                price, 
+                transactionId: paymentIntent.id,
+                user,
+                email,
+                phone,
+                bookingId: _id,
+                
+            }
+            fetch('http://localhost:5000/payment',{
+                method: 'POST',
+                headers: {
+                    'content-type' : 'application/json',
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            })
+            .then(res => res.json())
+            .then( data =>{
+                console.log(data);
+                if(data.insertedId)
+                { 
+                    setSuccess('Congrats! Your payment completed');
+                    setTransactionId(paymentIntent.id);
+                    window.alert('Congrats! Your payment is completed')        
+                }
+            })
+        } 
+        setProcessing(false);
     }
     return (
         <div>
@@ -93,17 +120,17 @@ const StripeCheckOut = ({booking}) => {
                     }}
                 />
                 <button className='btn mt-4 w-full btn-primary' type="submit" 
-                    disabled={!stripe || !clientSecret} >
+                    disabled={!stripe || !clientSecret || processing} >
                     Pay
                 </button>
             </form>
             <p className="text-xl red-500">{cardError}</p>
-            {/* {
+            {
                 success && <div>
                     <p className='text-green-500'>{success}</p>
                     <p>Your transaction id is: <span className='font-bold'>{transactionId}</span> </p>
                 </div>
-            } */}
+            } 
         </div>
     );
 };
