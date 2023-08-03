@@ -22,11 +22,13 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import SellerRoute from "../SellerRoute/SellerRoute";
 import MyAllProduct from "../../Pages/Dashboard/MyProduct/MyAllProduct";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
+import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -85,6 +87,7 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/dashboard',
