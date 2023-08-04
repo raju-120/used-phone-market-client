@@ -5,6 +5,7 @@ import bkash from '../../../assets/logo/bkash.jpg';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import StripeCheckOut from './StripeCheckOut/StripeCheckOut';
+import BkashPayment from './BkashPayment/BkashPayment';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
@@ -38,7 +39,7 @@ const Payment = () => {
                 <h2 className='text-xl text-center'>Please select which way you want to pay.</h2>
                 <div className='divider'></div>
                 <div className='mt-5 '>
-                    <div className='mt-5 lg:ml-80 grid grid-cols-1 lg:grid-cols-3'>
+                    <div className=' lg:ml-80 grid grid-cols-1 lg:grid-cols-3'>
                         <div className="flex">
                                 <input type="radio" name="selection" value="card" className="m-2 p-3 radio checked:bg-lime-600"
                                 onChange={handleChange} checked={select.selection === "card"} />
@@ -70,7 +71,7 @@ const Payment = () => {
                     </div>
                 </div>
                 {/* <h2>selected method: {select.selection}</h2> */}
-                <div className='lg:mx-96 mx-5 item lg:w-96 my-24'>
+                <div className='lg:mx-96 mx-5 lg: my-10'>
                     {
                         select.selection === "card" &&
                         <Elements stripe={stripePromise}>
@@ -78,7 +79,13 @@ const Payment = () => {
                             booking={booking}
                         />
                         </Elements>
-                    }    
+                    }
+                    {
+                        select.selection === "bkash" &&
+                        <BkashPayment
+                            booking={booking}
+                        ></BkashPayment>
+                    }  
                 </div> 
             </div>
         </div>
