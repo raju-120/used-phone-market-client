@@ -23,6 +23,8 @@ import SellerRoute from "../SellerRoute/SellerRoute";
 import MyAllProduct from "../../Pages/Dashboard/MyProduct/MyAllProduct";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
+import PaymentSuccess from "../../Pages/Dashboard/Payment/BkashPayment/PaymentSuccess";
+import PaymentFailed from "../../Pages/Dashboard/Payment/BkashPayment/PaymentFail/PaymentFailed";
 
 const router = createBrowserRouter([
     {
@@ -81,6 +83,14 @@ const router = createBrowserRouter([
                 path: '/watchDetails/:_id',
                 element: <WatchDetails></WatchDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/watchCollections/${params._id} `)
+            },
+            {
+                path: '/sslPayment/success',
+                element: <PaymentSuccess></PaymentSuccess>
+            },
+            {
+                path: '/sslPayment/fail',
+                element: <PaymentFailed></PaymentFailed>
             }
         ]
     },

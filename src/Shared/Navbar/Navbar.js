@@ -31,7 +31,7 @@ const Navbar = () => {
         
     </React.Fragment>
     return (
-        <div className="navbar bg-base-200 mt-2 mb-2 flex justify-between rounded">
+        <div className="navbar bg-base-200 mt-2 mb-2 flex justify-between rounded print:hidden">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={1} className="btn btn-ghost lg:hidden">

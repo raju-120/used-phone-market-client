@@ -1,9 +1,11 @@
-import React from 'react';
+import React/* , { useState } */ from 'react';
 import { useForm } from 'react-hook-form';
 
 const BkashPayment = ({booking}) => {
     const {register,handleSubmit} = useForm();
     const {_id,user,email,price,phone} = booking;
+    
+    //const [transactionId, setTransactionId] = useState('');
     
     const handleBkashPayment= (data) =>{
         const payment = {
@@ -26,6 +28,18 @@ const BkashPayment = ({booking}) => {
         .then(data =>{
             console.log(data);
             window.location.replace(data.url);
+            /* if(data.status === "succeeded")
+            {
+                const sslPay ={
+                    price,
+                    bookingId: _id,
+                    transactionId: transactionId,
+                    phone,
+                    user,
+                    email,
+                }
+                fetch('http://localhost:5000/')
+            } */
         })
     }
     return (
