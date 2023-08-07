@@ -13,6 +13,7 @@ const BkashPayment = ({booking}) => {
             email: data.email,
             price: data.price,
             phone: data.phone,
+            address: data.address,
             bookingId: _id
         } 
         console.log(payment);
@@ -28,22 +29,11 @@ const BkashPayment = ({booking}) => {
         .then(data =>{
             console.log(data);
             window.location.replace(data.url);
-            /* if(data.status === "succeeded")
-            {
-                const sslPay ={
-                    price,
-                    bookingId: _id,
-                    transactionId: transactionId,
-                    phone,
-                    user,
-                    email,
-                }
-                fetch('http://localhost:5000/')
-            } */
+            
         })
     }
     return (
-        <div className='bg-base-200 rounded-lg'>
+        <div className='bg-base-200 rounded-lg mb-5'>
             <div className='p-2'>
                 <h2 className='text-xl font-bold mb-5'>Please provide the Bkash Information</h2>
                 <form onSubmit={handleSubmit(handleBkashPayment)}> 
@@ -84,7 +74,7 @@ const BkashPayment = ({booking}) => {
                                         }
                                     )
                             }
-                        placeholder="My-contact-number" className="input input-bordered w-full"/>
+                        placeholder="My-contact-number" className="input input-bordered w-full" readOnly/>
                             
                         <input type="text"
                             
@@ -96,8 +86,22 @@ const BkashPayment = ({booking}) => {
                                         }
                                     )
                             }
-                        placeholder='Phone Name'  className="input input-bordered w-full "/>
+                        placeholder='Phone Name'  className="input input-bordered w-full "readOnly/>
+                        
+                        
+                    
                     </div>
+                    <textarea type="text"
+                            
+                            { 
+                                ...register('address',
+                                        { 
+                                            required: 'address required'
+                                        }
+                                    )
+                            }
+                        placeholder='Address'  className="mt-2 textarea textarea-bordered textarea-md lg:w-full"/>
+                        
                     <input className='btn mt-5 btn-primary  w-full mx-w-xs' value="Add Product" type="submit" />
                 </form>
             </div>
