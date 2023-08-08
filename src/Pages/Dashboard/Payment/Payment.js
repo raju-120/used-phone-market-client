@@ -6,11 +6,14 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import StripeCheckOut from './StripeCheckOut/StripeCheckOut';
 import BkashPayment from './BkashPayment/BkashPayment';
+import useTitle from '../../../UseHooks/UseTitle/UseTitle';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 
 const Payment = () => {
+
+    useTitle('Payment');
     const booking = useLoaderData();
     const {device,price,slot,appointmentDate}=booking;
 

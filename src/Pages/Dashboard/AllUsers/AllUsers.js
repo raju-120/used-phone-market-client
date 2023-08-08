@@ -3,9 +3,11 @@ import { toast } from 'react-hot-toast';
 import { useQuery } from 'react-query';
 import Loading from '../../../Shared/Loading/Loading';
 import ConfirmationModal from '../../../Shared/ConfirmModal/ConfirmModal';
+import useTitle from '../../../UseHooks/UseTitle/UseTitle';
 
 const AllUsers = () => {
 
+    useTitle('AllUsers');
     const [deleteUser, setDeleteUser] = useState(null);
 
     const closeModal = () =>{

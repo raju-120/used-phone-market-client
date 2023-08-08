@@ -4,8 +4,11 @@ import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../../Context/AuthProvider';
 import useToken from '../../../../UseHooks/UseToken/useToken';
+import useTitle from '../../../../UseHooks/UseTitle/UseTitle';
 
 const SellerSignUp = () => {
+    
+    useTitle('SellerSignUp');
     const { register,formState: {errors} ,handleSubmit } = useForm();
     const {createUser , updateUser } = useContext(AuthContext);
     const navigate= useNavigate();

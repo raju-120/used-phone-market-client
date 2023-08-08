@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import ComplainModal from '../../../../Shared/CompainModal/ComplainModal';
+import useTitle from '../../../../UseHooks/UseTitle/UseTitle';
 
 const WatchDetails = () => {
+
+    useTitle('WatchDetails');
     const {name,photo,price,usage,camera,chipset,color,network,
         os,sim,storage,battery,_id,sellerName,sellerPhoneNumber,postTime} = useLoaderData();
 

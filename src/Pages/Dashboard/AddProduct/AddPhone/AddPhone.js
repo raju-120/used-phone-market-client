@@ -65,7 +65,8 @@ const AddPhone = () => {
                 .then(res => res.json())
                 .then(result =>{
                     console.log(result);
-                    toast.success(`${data.name} phone selling product successfully added.`)
+                    toast.success(`${data.name} phone selling product successfully added.`);
+                    
                     navigate('/dashboard')
                 })
             }

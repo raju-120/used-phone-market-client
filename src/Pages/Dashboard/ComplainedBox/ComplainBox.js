@@ -3,9 +3,11 @@ import { useQuery } from 'react-query';
 import Loading from '../../../Shared/Loading/Loading';
 import ConfirmationModal from '../../../Shared/ConfirmModal/ConfirmModal';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../../UseHooks/UseTitle/UseTitle';
 
 const ComplainBox = () => {
 
+    useTitle('ComplainBox');
     const [reportDelete, setReportDelete] = useState(null);
 
     const closeModal=() =>{

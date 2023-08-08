@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../UseHooks/UseTitle/UseTitle';
 
 
 const MyAppointment = () => {
 
+    useTitle('MyAppointment');
     const {user} = useContext(AuthContext)
 
     const url = `http://localhost:5000/booking?email=${user?.email}`;

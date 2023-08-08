@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
+import useTitle from '../../UseHooks/UseTitle/UseTitle';
 
 const ResetPassword = () => {
 
+    useTitle('ResetPassword');
     const {register,formState:{errors},handleSubmit }= useForm();
 
     const {resetEmail} = useContext(AuthContext);

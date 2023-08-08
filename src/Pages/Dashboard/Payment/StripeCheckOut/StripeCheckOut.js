@@ -126,7 +126,8 @@ const StripeCheckOut = ({booking}) => {
             </form>
             <p className="text-xl red-500">{cardError}</p>
             {
-                success && <div>
+                success && 
+                <div>
                     <p className='text-green-500'>{success}</p>
                     <p>Your transaction id is: <span className='font-bold'>{transactionId}</span> </p>
                 </div>

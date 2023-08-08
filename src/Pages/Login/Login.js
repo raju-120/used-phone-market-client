@@ -6,9 +6,11 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import googlePhoto from '../../assets/logo/Google__G__Logo.svg.webp';
 import facebookPhoto from '../../assets/logo/Facebook_f_logo_(2021).svg.png';
+import useTitle from '../../UseHooks/UseTitle/UseTitle';
 
 const Login = () => {
 
+    useTitle('Login');
     const {register,formState:{errors} ,handleSubmit}= useForm();
     const {signIn,googleLogin,facebookLogin} = useContext(AuthContext)
     

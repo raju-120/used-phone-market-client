@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import buyerLogo from '../../../assets/logo/buyerLogo.jpg';
 import sellerLogo from '../../../assets/logo/sellerLogo.png';
+import useTitle from '../../../UseHooks/UseTitle/UseTitle';
 
 const SelectSignUpRole = () => {
+    
+    useTitle('SelectSignUp');
     return (
         <div className='mt-5 p-24 bg-base-300 rounded-3xl'> 
             <div>

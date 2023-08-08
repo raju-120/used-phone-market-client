@@ -20,6 +20,7 @@ const AddProduct = () => {
         })
     }
 
+
     return (
         <div>
             <h2 className="text-3xl mb-5 bg-red-400 p-5 text-center">Add a selling product</h2>
@@ -67,7 +68,8 @@ const AddProduct = () => {
                     </div> 
                     
                     
-                </div>{/* 
+                </div>
+                {/* 
                 <h2>Selected method is: {select.selection}</h2> */}
                 
                 

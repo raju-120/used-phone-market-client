@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AppointmentBanner from '../AppointmentBanner/AppointmentBanner';
 import AvailableAppointmentTablet from './AvailableAppointmentTablet/AvailableAppointmentTablet';
+import useTitle from '../../../UseHooks/UseTitle/UseTitle';
 
 const AppointmentTablet = () => {
+    useTitle('TabletAppointment');
     const [selectDate, setSelectedDate] = useState(new Date() )
     
 

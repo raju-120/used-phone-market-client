@@ -6,10 +6,12 @@ import { toast } from 'react-hot-toast';
 import googlePhoto from '../../assets/logo/Google__G__Logo.svg.webp';
 import facebookPhoto from '../../assets/logo/Facebook_f_logo_(2021).svg.png';
 import useToken from '../../UseHooks/UseToken/useToken';
+import useTitle from '../../UseHooks/UseTitle/UseTitle';
 
 
 const SignUp = () => {
 
+    useTitle('SignUp')
     const { register,formState: {errors} ,handleSubmit } = useForm();
     const {createUser , updateUser,googleLogin,facebookLogin } = useContext(AuthContext);
     const navigate= useNavigate();
