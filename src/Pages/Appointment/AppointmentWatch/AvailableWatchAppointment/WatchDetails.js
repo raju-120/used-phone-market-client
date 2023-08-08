@@ -11,12 +11,13 @@ const WatchDetails = () => {
         const closeModal =() =>{
             setReport(null);
         }
+
     
     return (
         <div className='mt-5'>
             <div className="card flex flex-col-row lg:card-side bg-base-200 shadow-xl">
                 <figure>
-                    <img  src={photo} alt="Phone"/>
+                    <img style={{width: '400px'}} src={photo} alt="Phone"/>
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold text-5xl">{name}</h2>
