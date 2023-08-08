@@ -23,7 +23,7 @@ const DashboardLayout = () => {
                             {
                                 isSeller && <>
                                     <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/addProduct'>Add Product</Link></li>
-                                    <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/myallProduct'>Add Product</Link></li>
+                                    <li className='mb-2 text-lg bg-yellow-400 rounded-lg'><Link to='/dashboard/myallProduct'>My Added Product</Link></li>
                                 </>
                             }
                     </React.Fragment>

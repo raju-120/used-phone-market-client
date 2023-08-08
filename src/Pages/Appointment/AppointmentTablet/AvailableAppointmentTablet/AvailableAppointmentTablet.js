@@ -5,6 +5,7 @@ import TabletAppointment from './TabletAppointment';
 import TabBookingModal from '../BookingModalTab/TabBookingModal';
 import Loading from '../../../../Shared/Loading/Loading';
 
+
 const AvailableAppointmentTablet = ({selectDate}) => {
 
     const [tabletBooked, setTabletBooked] = useState(null);
@@ -29,7 +30,7 @@ const AvailableAppointmentTablet = ({selectDate}) => {
             <p className='font-bold text-2xl text-center'>Available Phones on {format(selectDate, 'PP')}</p>
             <div className='grid gap-6 grid-cols-1 md:grid-col-2 lg:grid-cols-3'>
                 {
-                    appointmentTablets.map(option => <TabletAppointment
+                    appointmentTablets?.tablets?.map(option => <TabletAppointment
                         key={option._id}
                         option={option}
                         setTabletBooked={setTabletBooked}

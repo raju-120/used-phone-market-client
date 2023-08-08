@@ -6,7 +6,6 @@ import { useQuery } from 'react-query';
 import Loading from '../../../../Shared/Loading/Loading';
 
 
-
 const AvailableAppointment = ({selectDate}) => {
     /* const [appointmentPhones, setAppointmentPhones] = useState([]);  */
     const [phoneBooked, setPhoneBooked] = useState(null);

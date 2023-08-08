@@ -29,7 +29,7 @@ const AvailableWatchAppointment = ({selectDate}) => {
             <p className='font-bold text-2xl text-center'>Available Phones on {format(selectDate, 'PP')}</p>
             <div className='grid gap-6 grid-cols-1 md:grid-col-2 lg:grid-cols-3'>
                 {
-                    appointmentWatches.map(option => <WatchAppointment
+                    appointmentWatches?.watches?.map(option => <WatchAppointment
                         key={option._id}
                         appointmentWatch={option}
                         setWatchBooked={setWatchBooked}

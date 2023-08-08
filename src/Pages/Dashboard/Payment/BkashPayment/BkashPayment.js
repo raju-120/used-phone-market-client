@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 const BkashPayment = ({booking}) => {
     const {register,handleSubmit} = useForm();
-    const {_id,user,email,price,phone} = booking;
+    const {_id,user,email,price,phone,device} = booking;
     
     //const [transactionId, setTransactionId] = useState('');
     
@@ -14,7 +14,8 @@ const BkashPayment = ({booking}) => {
             price: data.price,
             phone: data.phone,
             address: data.address,
-            bookingId: _id
+            bookingId: _id,
+            deviceName: device
         } 
         console.log(payment);
         fetch('http://localhost:5000/sslPayment',{

@@ -53,7 +53,7 @@ const PaymentSuccess = () => {
                                 <p className='text-xs'>email: resellmarket@gmail.com</p>
                                 <div className='mt-5'>
                                     <h2 className='text-2xl font-bold'>Order Invoice</h2>
-                                    <p>Date: {paymentSuccess.paidAt}</p>
+                                    <p className='mt-3'>Date: {paymentSuccess.paidAt}</p>
                                 </div>
                             </div>
                         </div>
@@ -77,14 +77,16 @@ const PaymentSuccess = () => {
                             
                             <tr className="active">
                                 <th>01</th>
-                                <td>{paymentSuccess.user}</td>
+                                <td>{paymentSuccess.deviceName}</td>
                                 <td>{paymentSuccess.transactionId}</td>
                                 <td>{paymentSuccess.price}TK</td>
                             </tr>
                             
                             </tbody>
                         </table>
-                        <button className='mt-4 w-full btn btn-primary  print:hidden' onClick={() => window.print()}>Print</button>
+                        <div className='text-end'>
+                            <button className='mt-4 btn btn-primary  print:hidden' onClick={() => window.print()}>Print</button>
+                        </div>
                     </div>
                 </section>
             </body>

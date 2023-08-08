@@ -8,35 +8,30 @@ import ConfirmationModal from '../../../../Shared/ConfirmModal/ConfirmModal';
 const MyPhone = () => {
     const {user} = useContext(AuthContext);
 
-    const [deleteUser, setDeleteUser] = useState(null);
-    const url =`http://localhost:5000/phoneCollections?email=${user?.email}`;
+    const [deleteProduct, setDeleteProduct] = useState(null);
 
     const closeModal = () =>{
-        setDeleteUser(null);
+        setDeleteProduct(null);
     }
     
 
-    const {data: phones =[], isLoading, refetch} = useQuery({
-        queryKey: ['phones'],
-        queryFn: async () =>{
-            try{
-                const res = await fetch(url);
-                const data = await res.json();
-                return data;
-            }
-            catch{
-
-            }      
+    const {data:phoneResults =[], refetch, isLoading} = useQuery({
+        queryKey: ['phoneCollections'],
+        queryFn: async() => {
+            const res = await fetch(`http://localhost:5000/phoneCollections?email=${user?.email}`)
+            const data = await res.json();
+            return data;
         }
-    });
+    })
 
     if(isLoading)
     {
         return <Loading></Loading>
     }
 
-    const handleDelete = (user) =>{
-        fetch(`http://localhost:5000/emailusers/${user._id}`,{
+    const handleDelete = (results) =>{
+        console.log(results);
+       fetch(`http://localhost:5000/phoneCollections/result/${results._id}`,{
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -46,20 +41,20 @@ const MyPhone = () => {
         .then(data => {
             if(data.deletedCount > 0 )
             {
-                toast.success(`${user.name} deleted successfully.`);
+                toast.success(`${results.name} deleted successfully.`);
                 refetch();
             }
-        })
-    }
+        }) 
+    } 
 
     return (
-        <div className='ml-5'>
+        <div className='ml-5 mb-10'>
             <div className="overflow-x-auto">
                 <table className="table bg-emerald-300">
                     
                     <thead>
                         <tr >
-                            <th></th>
+                            <th>SL</th>
                             <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -68,40 +63,38 @@ const MyPhone = () => {
                     </thead>
                     <tbody >
                         {
-                            phones &&
-                            phones.map((user,i) =>
-                            <tr key={user._id}>
-                                <th>{i+1}</th>
-                                <td> 
-                                    <div className="avatar">
-                                        <div className="w-24 rounded-xl">
-                                            <img src={user?.photo} alt="phones-photos"/>
+                            phoneResults?.results?.map((result,i) =>
+                                <tr className="hover"
+                                    key={result._id}>
+                                    <th>{i+1}</th>
+                                    <td>
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={result.photo} alt="Avatar Tailwind CSS Component" />
+                                            </div>
                                         </div>
-                                    </div>
+                                    </td>
+                                    <td>{result.name}</td>
+                                    <td>{result.sellerEmail}</td>
+                                    <td>
+                                        <label onClick={() => setDeleteProduct(result)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                                 </td>
-                                <td>{user.name}</td>
-                                <td>{user.sellerEmail}</td>
-
-                                <td>
-                                    <label onClick={() => setDeleteUser(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
-                                </td>
-                            </tr>
-                            )
+                            </tr>)
                         }
                         
                     </tbody>
                 </table>
             </div>
             {
-                deleteUser && <ConfirmationModal
-                    title={`Are you sure that you want to delete?`}
-                    message={`If you want to delete Mr. ${deleteUser.name}.It can not be recover.`}
+                deleteProduct && <ConfirmationModal
+                    title={`Are you sure that, you want to delete?`}
+                    message={`If you want to delete  ${deleteProduct?.name}.It can not be recover in future.`}
                     successAction={handleDelete}
                     successButtonName='Delete'
-                    modalData={deleteUser}
+                    modalData={deleteProduct}
                     closeModal={closeModal}
                 ></ConfirmationModal>
-            }
+            }  
         </div>
     );
 };
