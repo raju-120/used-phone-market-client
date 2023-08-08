@@ -34,9 +34,10 @@ const BkashPayment = ({booking}) => {
         })
     }
     return (
-        <div className='bg-base-200 rounded-lg mb-5'>
-            <div className='p-2'>
-                <h2 className='text-xl font-bold mb-5'>Please provide the Bkash Information</h2>
+        <div className='bg-base-200 rounded-lg mb-10'>
+            <h2 className='text-3xl text-center font-semibold text-emerald-500 p-2'>Please refresh 2 or 3 times.Due to network issue it will take sometimes.</h2>
+            <div className='p-5'>
+                <h2 className='text-xl font-bold mb-5'>Please provide the valuable Information.</h2>
                 <form onSubmit={handleSubmit(handleBkashPayment)}> 
                                 
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-5'>
@@ -101,9 +102,9 @@ const BkashPayment = ({booking}) => {
                                         }
                                     )
                             }
-                        placeholder='Address'  className="mt-2 textarea textarea-bordered textarea-md lg:w-full"/>
+                        placeholder='Address'  className="mt-2 textarea textarea-bordered textarea-md w-full"/>
                         
-                    <input className='btn mt-5 btn-primary  w-full mx-w-xs' value="Add Product" type="submit" />
+                    <input className='btn mt-5 btn-primary  w-full mx-w-xs' value="Bkash Pay" type="submit" />
                 </form>
             </div>
         </div>

@@ -74,7 +74,7 @@ const Payment = () => {
                     </div>
                 </div>
                 {/* <h2>selected method: {select.selection}</h2> */}
-                <div className='lg:mx-96 mx-5 lg: my-10'>
+                <div className='lg:mx-auto mx-5 lg: my-10'>
                     {
                         select.selection === "card" &&
                         <Elements stripe={stripePromise}>

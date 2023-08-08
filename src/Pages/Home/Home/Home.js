@@ -5,8 +5,11 @@ import SmartPhones from '../SmartPhones/SmartPhones';
 import SmartWatch from '../SmartWatch/SmartWatch';
 import Report from '../Report/Report';
 import Tablet from '../Tablet/Tablet';
+import useTitle from '../../../UseHooks/UseTitle/UseTitle';
 
 const Home = () => {
+
+    useTitle('Home');
     return (
         <div>
             <Banner></Banner>

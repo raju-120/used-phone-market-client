@@ -74,7 +74,7 @@ const AllUsers = () => {
 
     return (
         <div className='ml-5'>
-            <h2 className="text-3xl mb-5 bg-red-400 p-5 rounded-xl">My Appointments</h2>
+            <h2 className="text-3xl mb-5 bg-red-400 p-5 text-center rounded-xl">All Users</h2>
             <div className="overflow-x-auto">
                 <table className="table bg-cyan-200">
                     
