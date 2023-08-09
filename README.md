@@ -1,6 +1,6 @@
 # Resell Market
 
-This project liver site is: (https://resellmarket.netlify.app/).
+This project's liver site is: ([https://resellmarket.netlify.app/](https://resellmarket.netlify.app/)).
 
 ## Frontend
 * Reactjs
@@ -14,11 +14,12 @@ This project liver site is: (https://resellmarket.netlify.app/).
 * React Toastify
 * React Icon
 * React Query
+* React-icons-ai
 
 ## Backend
 * Nodejs
 * ExpressJs
-* MongoDB(for data-base)
+* MongoDB(for database)
 * JsonWebToken
 * Vercel(for server deployed)
 
