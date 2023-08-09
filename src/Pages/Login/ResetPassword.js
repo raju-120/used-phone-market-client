@@ -48,7 +48,7 @@ const ResetPassword = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg focus:outline-none focus:ring focus:ring-blue-300 transform hover:scale-105 transition duration-300 ease-in-out">Reset Password</button>
                             </div>
                             {
                                 emailError && <p className='text-red-500'>{emailError}</p>

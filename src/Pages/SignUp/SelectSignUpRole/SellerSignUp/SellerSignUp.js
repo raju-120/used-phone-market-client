@@ -5,12 +5,15 @@ import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../../Context/AuthProvider';
 import useToken from '../../../../UseHooks/UseToken/useToken';
 import useTitle from '../../../../UseHooks/UseTitle/UseTitle';
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SellerSignUp = () => {
     
     useTitle('SellerSignUp');
     const { register,formState: {errors} ,handleSubmit } = useForm();
     const {createUser , updateUser } = useContext(AuthContext);
+    const [visible,setVisible] = useState("");
+    const [password,setPassword] = useState("");
     const navigate= useNavigate();
 
     /* const [createdEmail,setCreatedEmail] = useState(''); */
@@ -116,24 +119,57 @@ const SellerSignUp = () => {
                             
                             </div>
 
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
+                            <div>
+                                <label
+                                    htmlFor="password"
+                                    className="block text-sm font-medium text-gray-700"
+                                >
+                                    Password
                                 </label>
-                                <input type="password" 
-                                    {
-                                        ...register('password',{
-                                            required: 'password required',
-                                            minLength:{ value: 6, message: 'Password must be 6 character' },
-                                            pattern:{ value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message:'password must have Uppercase,Number and Special character'},
-                                        })
-                                    }
-                                    placeholder="password" className="input input-bordered" />
-                                    {errors.password && <p className='text-red-500'> {errors.password?.message} </p>}
+                                <div className="mt-1 relative">
+                                    <input
+                                        type={visible ? "text" : "password"}
+                                        name="password"
+                                        autoComplete="current-password"
+                                        required
+                                        
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        {
+                                            
+                                            ...register('password',{
+                                                
+                                                required: 'password required',/* 
+                                                minLength: {value:6, message:'Password must be 6 character'}, */
+                                                pattern: {/* value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, */ message: 'Password must have uppercase, number and special characters'}
+                                            })
+                                        }
+                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    />
+                                    {visible ? (
+                                    <AiOutlineEyeInvisible
+                                        className="absolute right-2 top-2 cursor-pointer"
+                                        size={25}
+                                        onClick={() => setVisible(false)}
+                                    />
+                                    ) : (
+                                    <AiOutlineEyeInvisible
+                                        className="absolute right-2 top-2 cursor-pointer"
+                                        size={25}
+                                        onClick={() => setVisible(true)}
+                                    />
+                                    )}
+
+                                <label className="label">
+                                    <Link to='/reset' className="label-text-alt link link-hover">Forgot password?</Link>
+                                </label>
                                 
+                                {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
+                                
+                                </div>
+                            
                             </div>
 
-                            <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
+                            <input className='bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg focus:outline-none focus:ring focus:ring-blue-300 transform hover:scale-105 transition duration-300 ease-in-out' value="Sign Up" type="submit" />
                             {signUpError && <p className='text-red-500'>{signUpError}</p>}
                         </form>
                         

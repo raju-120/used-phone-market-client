@@ -25,10 +25,10 @@ const Navbar = () => {
         { user?.uid ?
             <>
             <li><Link to='/dashboard' className='text-xl text-white lg:text-black'>Dashboard</Link></li>
-            <li><button onClick={handleLogout} className='text-lg text-white lg:text-black p-2 btn btn-primary'>SignOut</button></li>
+            <li><button onClick={handleLogout} className='bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg focus:outline-none focus:ring focus:ring-blue-300 transform hover:scale-105 transition duration-300 ease-in-out'>SignOut</button></li>
             </>
             :
-            <li><Link to='/login' className='text-xl btn btn-primary text-white lg:text-black'>Login</Link></li>
+            <li><Link to='/login' className='bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold my-2 text-md rounded-full shadow-lg focus:outline-none focus:ring focus:ring-blue-300 transform hover:scale-105 transition duration-300 ease-in-out'>Login</Link></li>
         }
         
     </React.Fragment>

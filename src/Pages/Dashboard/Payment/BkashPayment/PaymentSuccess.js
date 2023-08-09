@@ -43,7 +43,7 @@ const PaymentSuccess = () => {
                     <div>
                         <div className='flex'>
                             <div>
-                                <img src={logo} className='m-2' style={{width: '60px' , borderRadius: '50px'}} alt="" />
+                                <img src={logo} style={{width: '60px' , borderRadius: '50px'}} alt="" />
                             </div>    
                             <div>
                                 <h2 className='text-3xl font-bold'>Techno Limited</h2>

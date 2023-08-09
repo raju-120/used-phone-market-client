@@ -5,16 +5,18 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import googlePhoto from '../../assets/logo/Google__G__Logo.svg.webp';
-import facebookPhoto from '../../assets/logo/Facebook_f_logo_(2021).svg.png';
 import useTitle from '../../UseHooks/UseTitle/UseTitle';
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
 
     useTitle('Login');
     const {register,formState:{errors} ,handleSubmit}= useForm();
-    const {signIn,googleLogin,facebookLogin} = useContext(AuthContext)
+    const {signIn,googleLogin} = useContext(AuthContext)
     
     const [loginError, setLoginError] = useState('');
+    const [visible,setVisible] = useState("");
+    const [password,setPassword] = useState("");
     const location = useLocation();
     const navigate= useNavigate();
 
@@ -46,7 +48,7 @@ const Login = () => {
             })
     }
 
-    const handleFaceBookLogIn = () =>{
+    /* const handleFaceBookLogIn = () =>{
         facebookLogin() 
             .then(result =>{
                 const user = result.user;
@@ -55,7 +57,7 @@ const Login = () => {
                 navigate('/') 
             })
     }
-
+ */
     
 
     return (
@@ -86,30 +88,57 @@ const Login = () => {
                                     {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
                             </div>
 
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
+                            <div>
+                                <label
+                                    htmlFor="password"
+                                    className="block text-sm font-medium text-gray-700"
+                                >
+                                    Password
                                 </label>
-                                <input type="password" 
-                                    {
-                                        ...register('password',{
-                                            required: 'password required',
-                                            minLength: {value:6, message:'Password must be 6 character'},
-                                            pattern: {value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters'}
-                                        })
-                                    }
-                                    placeholder="password" className="input input-bordered" />
-                                    
-                                
-                                
+                                <div className="mt-1 relative">
+                                    <input
+                                        type={visible ? "text" : "password"}
+                                        name="password"
+                                        autoComplete="current-password"
+                                        required
+                                        
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        {
+                                            
+                                            ...register('password',{
+                                                
+                                                required: 'password required',/* 
+                                                minLength: {value:6, message:'Password must be 6 character'}, */
+                                                pattern: {/* value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, */ message: 'Password must have uppercase, number and special characters'}
+                                            })
+                                        }
+                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    />
+                                    {visible ? (
+                                    <AiOutlineEyeInvisible
+                                        className="absolute right-2 top-2 cursor-pointer"
+                                        size={25}
+                                        onClick={() => setVisible(false)}
+                                    />
+                                    ) : (
+                                    <AiOutlineEyeInvisible
+                                        className="absolute right-2 top-2 cursor-pointer"
+                                        size={25}
+                                        onClick={() => setVisible(true)}
+                                    />
+                                    )}
+
                                 <label className="label">
                                     <Link to='/reset' className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
+                                
                                 {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
                                 
+                                </div>
+                            
                             </div>
 
-                            <input className='btn btn-accent w-full' value="Login" type="submit" />
+                            <input className='bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg focus:outline-none focus:ring focus:ring-blue-300 transform hover:scale-105 transition duration-300 ease-in-out' value="Login" type="submit" />
                             
                             <div>
                                 
@@ -134,14 +163,14 @@ const Login = () => {
                             </div>
                         </div>
 
-                        <div onClick={handleFaceBookLogIn} className='flex max-w-md mb-5 btn'>
+                        {/* <div onClick={handleFaceBookLogIn} className='flex max-w-md mb-5 btn'>
                             <div>
                                 <h2>Sign-in with Facebook</h2>
                             </div>
                             <div>
                                 <img src={facebookPhoto} style={{width: '25px'}} alt="" />
                             </div>
-                        </div>
+                        </div> */}
                     </div> 
                 </div>
             </div>
