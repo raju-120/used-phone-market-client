@@ -28,7 +28,7 @@ const BookingModal = ({phoneBooked,selectDate, setPhoneBooked, refetch}) => {
         }
         
         console.log(booking);
-        fetch('http://localhost:5000/booking',{
+        fetch('https://used-product-server-raju-120.vercel.app/booking',{
             method: 'POST',
             headers:{
                 'content-type' : 'application/json' 

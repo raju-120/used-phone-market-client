@@ -19,7 +19,7 @@ const MyTablet = () => {
     const {data:phoneResults =[], refetch, isLoading} = useQuery({
         queryKey: ['phoneCollections'],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/tabCollections?email=${user?.email}`)
+            const res = await fetch(`https://used-product-server-raju-120.vercel.app/tabCollections?email=${user?.email}`)
             const data = await res.json();
             return data;
         }
@@ -32,7 +32,7 @@ const MyTablet = () => {
 
     const handleDelete = (results) =>{
         console.log(results);
-       fetch(`http://localhost:5000/tabCollections/result/${results._id}`,{
+       fetch(`https://used-product-server-raju-120.vercel.app/tabCollections/result/${results._id}`,{
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

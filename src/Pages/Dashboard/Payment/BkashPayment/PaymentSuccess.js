@@ -12,7 +12,7 @@ const PaymentSuccess = () => {
     
     const [paymentSuccess,setPaymentSuccess] = useState({});
     useEffect(() =>{
-        fetch(`http://localhost:5000/sslPayment/success/by-transaction-id/${transactionId}`)
+        fetch(`https://used-product-server-raju-120.vercel.app/sslPayment/success/by-transaction-id/${transactionId}`)
         .then(res => res.json())
         .then(data=>{
             setPaymentSuccess(data);
@@ -43,7 +43,7 @@ const PaymentSuccess = () => {
                     <div>
                         <div className='flex'>
                             <div>
-                                <img src={logo} className='m-4' style={{width: '70px' , borderRadius: '50px'}} alt="" />
+                                <img src={logo} className='m-2' style={{width: '60px' , borderRadius: '50px'}} alt="" />
                             </div>    
                             <div>
                                 <h2 className='text-3xl font-bold'>Techno Limited</h2>

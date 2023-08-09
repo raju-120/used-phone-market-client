@@ -13,7 +13,7 @@ const AvailableWatchAppointment = ({selectDate}) => {
     const {data: appointmentWatches=[], isLoading, refetch} = useQuery({
         queryKey:['watchCollections',date],
         queryFn: async() =>{
-            const res = await fetch(`http://localhost:5000/watchCollections?date=${date}`);
+            const res = await fetch(`https://used-product-server-raju-120.vercel.app/watchCollections?date=${date}`);
             const data = res.json();
             return data
         }

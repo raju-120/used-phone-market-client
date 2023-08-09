@@ -21,7 +21,7 @@ const ComplainModal = ({report,name,closeModal}) => {
             report,
         }
         console.log(complained);
-        fetch('http://localhost:5000/complains',{
+        fetch('https://used-product-server-raju-120.vercel.app/complains',{
             method: 'POST', 
             headers: {
                 'content-type' : 'application/json',

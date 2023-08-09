@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path:'/details/:_id',
                 element: <PhoneDetails></PhoneDetails> ,
-                loader: ({params}) => fetch(`http://localhost:5000/phoneCollections/${params._id} `)
+                loader: ({params}) => fetch(`https://used-product-server-raju-120.vercel.app/phoneCollections/${params._id} `)
             },
             {
                 path:'/appointment',
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
             {
                 path: '/tabDetails/:_id',
                 element: <TabletDetails></TabletDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/tabCollections/${params._id} `)
+                loader: ({params}) => fetch(`https://used-product-server-raju-120.vercel.app/tabCollections/${params._id} `)
             },
             {
                 path: '/watchappointment',
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
             {
                 path: '/watchDetails/:_id',
                 element: <WatchDetails></WatchDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/watchCollections/${params._id} `)
+                loader: ({params}) => fetch(`https://used-product-server-raju-120.vercel.app/watchCollections/${params._id} `)
             },
             {
                 path: '/sslPayment/success',
@@ -123,7 +123,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader:({params}) => fetch(`http://localhost:5000/booking/${params.id}`)
+                loader:({params}) => fetch(`https://used-product-server-raju-120.vercel.app/booking/${params.id}`)
             }
         ]
     }

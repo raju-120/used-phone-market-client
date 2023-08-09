@@ -19,7 +19,7 @@ const AllUsers = () => {
         queryKey: ['emailusers'],
         queryFn: async () =>{
             try{
-                const res = await fetch('http://localhost:5000/emailusers',{
+                const res = await fetch('https://used-product-server-raju-120.vercel.app/emailusers',{
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -41,7 +41,7 @@ const AllUsers = () => {
     }
 
     const handleDelete = (user) =>{
-        fetch(`http://localhost:5000/emailusers/${user._id}`,{
+        fetch(`https://used-product-server-raju-120.vercel.app/emailusers/${user._id}`,{
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -59,7 +59,7 @@ const AllUsers = () => {
 
 
     /* const handleMakeAdmin =(id) =>{
-        fetch(`http://localhost:5000/emailusers/admin/${id}`,{
+        fetch(`https://used-product-server-raju-120.vercel.app/emailusers/admin/${id}`,{
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -55,7 +55,7 @@ const AddTablet = () => {
                     photo: imgData.data.url,
                     postTime: date
                 }
-                fetch('http://localhost:5000/tabCollections',{
+                fetch('https://used-product-server-raju-120.vercel.app/tabCollections',{
                     method: 'POST',
                     headers:{
                         'content-type' : 'application/json'

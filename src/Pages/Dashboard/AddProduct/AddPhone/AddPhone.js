@@ -55,7 +55,7 @@ const AddPhone = () => {
                     photo: imgData.data.url,
                     postTime: date
                 }
-                fetch('http://localhost:5000/phoneCollections',{
+                fetch('https://used-product-server-raju-120.vercel.app/phoneCollections',{
                     method: 'POST',
                     headers:{
                         'content-type' : 'application/json'

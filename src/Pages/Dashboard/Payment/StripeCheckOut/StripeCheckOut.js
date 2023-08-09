@@ -14,7 +14,7 @@ const StripeCheckOut = ({booking}) => {
     const elements = useElements(); 
    
     useEffect(()=>{
-        fetch("http://localhost:5000/create-payment-intent",{
+        fetch("https://used-product-server-raju-120.vercel.app/create-payment-intent",{
             method: 'POST',
             headers:{
                 "content-type": "application/json",
@@ -79,7 +79,7 @@ const StripeCheckOut = ({booking}) => {
                 bookingId: _id,
                 
             }
-            fetch('http://localhost:5000/payment',{
+            fetch('https://used-product-server-raju-120.vercel.app/payment',{
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json',

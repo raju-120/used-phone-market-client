@@ -27,7 +27,7 @@ const WatchBookingModal = ({watchBooked,selectDate,refetch,setWatchBooked}) => {
             price
         }
         console.log(watchBooking);
-        fetch('http://localhost:5000/booking',{
+        fetch('https://used-product-server-raju-120.vercel.app/booking',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

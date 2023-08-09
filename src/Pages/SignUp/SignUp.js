@@ -54,7 +54,7 @@ const SignUp = () => {
             const saveUser = (name, email) =>{
                 const user = {name, email};
                 
-                fetch('http://localhost:5000/emailusers',{
+                fetch('https://used-product-server-raju-120.vercel.app/emailusers',{
                     method:'POST',
                     headers: {
                         'content-type' : 'application/json',
@@ -79,7 +79,7 @@ const SignUp = () => {
                     name: user.displayName,
                     email: user.email,
                 }
-                fetch('http://localhost:5000/emailusers',{
+                fetch('https://used-product-server-raju-120.vercel.app/emailusers',{
                     method:'POST',
                     headers: {
                         'content-type' : 'application/json',

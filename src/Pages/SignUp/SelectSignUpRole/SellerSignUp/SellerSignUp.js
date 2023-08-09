@@ -52,7 +52,7 @@ const SellerSignUp = () => {
             const saveUser = (name, email,role) =>{
                 const user = {name, email,role};
                 
-                fetch('http://localhost:5000/emailusers',{
+                fetch('https://used-product-server-raju-120.vercel.app/emailusers',{
                     method:'POST',
                     headers: {
                         'content-type' : 'application/json',

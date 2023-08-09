@@ -19,7 +19,7 @@ const ComplainBox = () => {
         queryFn: async () =>{
             try{
 
-                const res = await fetch('http://localhost:5000/complains',{
+                const res = await fetch('https://used-product-server-raju-120.vercel.app/complains',{
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -39,7 +39,7 @@ const ComplainBox = () => {
     }
 
     const handleDeleteReport = (complain) =>{
-        fetch(`http://localhost:5000/complains/${complain._id}`,{
+        fetch(`https://used-product-server-raju-120.vercel.app/complains/${complain._id}`,{
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

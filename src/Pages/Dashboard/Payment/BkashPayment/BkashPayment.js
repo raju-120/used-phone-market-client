@@ -17,8 +17,9 @@ const BkashPayment = ({booking}) => {
             bookingId: _id,
             deviceName: device
         } 
+        
         console.log(payment);
-        fetch('http://localhost:5000/sslPayment',{
+        fetch('https://used-product-server-raju-120.vercel.app/sslPayment',{
             method:'POST',
             headers:{
                 'content-type' : 'application/json',
